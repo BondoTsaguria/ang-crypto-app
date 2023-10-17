@@ -1,0 +1,25 @@
+.top-bar {
+  height: 50px;
+  background-color: #1c2132;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__actions {
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    .login,
+    .sign-up {
+      color: #fff;
+      font-size: 18px;
+      text-decoration: none;
+    }
+  }
+  .top-bar--logo {
+    padding: 20px;
+    .crypto-img {
+      width: 40px;
+    }
+  }
+}

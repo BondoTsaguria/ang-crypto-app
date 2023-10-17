@@ -1,0 +1,57 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  background-image: url(../../../../assets/imgs/back-img.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  .header {
+    color: #fff;
+    margin-top: 30px;
+    text-align: center;
+    .main-heading {
+      font-weight: bold;
+      margin-bottom: 15px;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
+      color: transparent;
+      -webkit-text-stroke: 0.7px #fff;
+    }
+    .secondary-heading {
+      text-transform: capitalize;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.57;
+      letter-spacing: 0.08em;
+    }
+  }
+
+  .sub-header {
+    height: 100%;
+    .crypto-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+
+      .crypto-item {
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        img {
+          max-width: 70px;
+        }
+        .crypto-symbol {
+          margin-top: 10px;
+          font-weight: bold;
+        }
+        .crypto-price {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
