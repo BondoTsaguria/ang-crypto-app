@@ -1,19 +1,32 @@
 <div class="home">
+  <div class="background-image"></div>
   <div class="header">
     <h2 class="main-heading">Cryptocurrency Prices</h2>
     <h6 class="secondary-heading">Check top Cryptocurrency Prices</h6>
   </div>
   <div class="sub-header">
-    <div class="crypto-grid">
-      <ng-container *ngFor="let item of trendingData; let i = index">
-        <div class="crypto-item">
-          <img [src]="item.image" alt="Crypto Logo" />
-          <p class="crypto-symbol">{{ item.symbol | uppercase }}</p>
-          <p class="crypto-price">
-            {{ item.current_price | currency : "USD" }}
-          </p>
-        </div>
-      </ng-container>
-    </div>
+    <marquee
+      behavior="scroll"
+      direction="left"
+      onmouseover="this.stop();"
+      onmouseout="this.start();"
+      loop="infinite"
+    >
+      <div class="crypto-grid">
+        <ng-container *ngFor="let item of trendingData; let i = index">
+          <div class="crypto-item">
+            <div class="img-container">
+              <img [src]="item.image" alt="Crypto Logo" />
+            </div>
+            <div class="info">
+              <p class="crypto-symbol">{{ item.symbol | uppercase }}</p>
+              <p class="crypto-price">
+                {{ item.current_price | currency : "USD" }}
+              </p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </marquee>
   </div>
 </div>

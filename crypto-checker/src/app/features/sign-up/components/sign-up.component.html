@@ -1,0 +1,116 @@
+<div class="form-container">
+  <h2>Sign up</h2>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email" />
+      <div
+        *ngIf="
+          formGroupSubmitted && formGroup.get('email')?.hasError('required')
+        "
+      >
+        Email is required
+      </div>
+      <div *ngIf="formGroup.get('email')?.hasError('email')">
+        Invalid email address
+      </div>
+    </div>
+
+    <!-- Password Field -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password" />
+      <div
+        *ngIf="
+          formGroupSubmitted && formGroup.get('password')?.hasError('required')
+        "
+      >
+        Password is required
+      </div>
+      <div *ngIf="formGroup.get('password')?.hasError('pattern')">
+        Invalid password format
+      </div>
+      <div *ngIf="formGroup.get('password')?.hasError('minlength')">
+        Password must be at least 8 characters long
+      </div>
+    </div>
+
+    <!-- Confirm Password Field -->
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        formControlName="confirmPassword"
+      />
+      <div
+        *ngIf="
+          formGroupSubmitted &&
+          formGroup.get('confirmPassword')?.hasError('required')
+        "
+      >
+        Confirm Password is required
+      </div>
+      <div
+        *ngIf="formGroup.get('confirmPassword')?.hasError('passwordMismatch')"
+      >
+        Passwords do not match
+      </div>
+    </div>
+
+    <!-- Nickname Field -->
+    <div class="form-group">
+      <label for="nickname">Nickname</label>
+      <input type="text" id="nickname" formControlName="nickname" />
+      <div
+        *ngIf="
+          formGroupSubmitted && formGroup.get('nickname')?.hasError('required')
+        "
+      >
+        Nickname is required
+      </div>
+      <div *ngIf="formGroup.get('nickname')?.hasError('pattern')">
+        Invalid nickname format
+      </div>
+    </div>
+
+    <!-- Phone Number Field -->
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="text" id="phoneNumber" formControlName="phoneNumber" />
+      <div
+        *ngIf="
+          formGroupSubmitted &&
+          formGroup.get('phoneNumber')?.hasError('required')
+        "
+      >
+        Phone Number is required
+      </div>
+      <div *ngIf="formGroup.get('phoneNumber')?.hasError('pattern')">
+        Invalid phone number format
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>
+        <input type="checkbox" formControlName="agreement" /> I have read the
+        agreement
+      </label>
+    </div>
+
+    <button
+      class="register-btn"
+      type="submit"
+      [disabled]="
+        !formGroup.get('agreement')?.value ||
+        (formGroup.get('password')?.value !==
+          formGroup.get('confirmPassword')?.value &&
+          (formGroup.get('password')?.value !== '' ||
+            formGroup.get('confirmPassword')?.value !== ''))
+      "
+    >
+      Sign up
+    </button>
+  </form>
+</div>

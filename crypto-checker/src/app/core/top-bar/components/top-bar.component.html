@@ -4,10 +4,52 @@
       class="crypto-img"
       src="../../../../assets/imgs/Bitcoin.png"
       alt="crypto logo"
+      *ngIf="!authService.isLoggedIn()"
     />
+    <a
+      class="account"
+      [routerLink]="['/account']"
+      routerLinkActive="active"
+      *ngIf="authService.isLoggedIn()"
+    >
+      Account
+    </a>
+    <a
+      class="market"
+      [routerLink]="['/market']"
+      routerLinkActive="active"
+      *ngIf="authService.isLoggedIn()"
+    >
+      Market
+    </a>
   </div>
   <div class="top-bar__actions">
-    <a href="#" class="login">Login</a>
-    <a href="#" class="sign-up">Sign Up</a>
+    <a
+      class="home"
+      [routerLink]="['/home']"
+      routerLinkActive="active"
+      *ngIf="!authService.isLoggedIn()"
+      >Home</a
+    >
+    <a
+      class="login"
+      [routerLink]="['/login']"
+      routerLinkActive="active"
+      *ngIf="!authService.isLoggedIn()"
+      >Login</a
+    >
+    <a
+      class="sign-up"
+      [routerLink]="['/sign-up']"
+      routerLinkActive="active"
+      *ngIf="!authService.isLoggedIn()"
+      >Sign Up</a
+    >
+    <a
+      class="logout"
+      [routerLink]="['/logout']"
+      *ngIf="authService.isLoggedIn()"
+      >Logout</a
+    >
   </div>
 </div>

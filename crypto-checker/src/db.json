@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "email": "caguria1@gmail.com",
+      "password": "12312312",
+      "confirmPassword": "12312312",
+      "nickname": "bondo-123",
+      "phoneNumber": "+995555555555",
+      "agreement": true,
+      "id": 1
+    }
+  ]
+}

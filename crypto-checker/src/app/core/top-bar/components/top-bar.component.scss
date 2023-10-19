@@ -9,11 +9,17 @@
     display: flex;
     gap: 15px;
     align-items: center;
+    .home,
     .login,
     .sign-up {
       color: #fff;
       font-size: 18px;
       text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #3498db;
     }
   }
   .top-bar--logo {
