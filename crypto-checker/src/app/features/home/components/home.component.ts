@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrendingCurrencyService } from '../services/trending-currency.service';
+import { CryptoDataService } from 'src/app/shared/services/crypto-data.service';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +9,14 @@ import { TrendingCurrencyService } from '../services/trending-currency.service';
 export class HomeComponent implements OnInit {
   trendingData!: any[];
 
-  constructor(private trendingCurrency: TrendingCurrencyService) {}
+  constructor(private cryptoData: CryptoDataService) {}
 
   ngOnInit(): void {
     this.getData();
   }
 
   getData() {
-    this.trendingCurrency.getTrendingCurrency('USD').subscribe((res) => {
-      console.log(res);
+    this.cryptoData.getTrendingCurrency('USD').subscribe((res) => {
       this.trendingData = res;
     });
   }
