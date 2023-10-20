@@ -39,7 +39,7 @@ export class LoginComponent {
           if (user) {
             this.authService.setLoggedIn(true);
             this.formGroup.reset();
-            this.router.navigateByUrl('/account');
+            this.router.navigateByUrl('/market');
           } else {
             // Invalid email or password
             this.formGroup.get('email')?.setErrors({ invalidEmail: true });

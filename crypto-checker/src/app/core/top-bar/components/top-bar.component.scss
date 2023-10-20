@@ -4,28 +4,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  &__actions {
+  a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  a:hover {
+    color: #3498db;
+  }
+  &__actions,
+  &__mainactions {
     padding: 20px;
     display: flex;
     gap: 15px;
     align-items: center;
-    .home,
-    .login,
-    .sign-up {
-      color: #fff;
-      font-size: 18px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    a:hover {
-      color: #3498db;
-    }
   }
-  .top-bar--logo {
-    padding: 20px;
-    .crypto-img {
-      width: 40px;
-    }
+
+  .crypto-img {
+    width: 40px;
   }
 }
