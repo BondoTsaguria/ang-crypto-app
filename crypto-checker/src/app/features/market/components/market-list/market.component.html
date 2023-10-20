@@ -1,12 +1,7 @@
 <div class="market-data__container">
   <mat-form-field>
     <mat-label>Filter</mat-label>
-    <input
-      matInput
-      (keyup)="applyFilter($event)"
-      placeholder="Ex. Mia"
-      #input
-    />
+    <input matInput (keyup)="applyFilter($event)" placeholder="" #input />
   </mat-form-field>
 
   <div class="mat-elevation-z8">
@@ -14,7 +9,10 @@
       <!-- Symbol Column -->
       <ng-container matColumnDef="symbol">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Coin</th>
-        <td mat-cell *matCellDef="let row">{{ row.symbol | uppercase }}</td>
+        <td mat-cell *matCellDef="let row">
+          <img [src]="row.image" width="30" alt="crypto logo image" />
+          <span class="mx-2">{{ row.symbol | uppercase }}</span>
+        </td>
       </ng-container>
 
       <!-- Current price Column -->
@@ -41,6 +39,15 @@
         </td>
       </ng-container>
 
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="viewCoin(row.id)">
+            <mat-icon>View</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
@@ -53,7 +60,7 @@
     </table>
 
     <mat-paginator
-      [pageSizeOptions]="[5, 10, 25, 100]"
+      [pageSizeOptions]="[10, 25, 50, 100]"
       aria-label="Select page of users"
     ></mat-paginator>
   </div>

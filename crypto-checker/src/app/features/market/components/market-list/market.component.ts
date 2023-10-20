@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 import { CryptoDataService } from 'src/app/shared/services/crypto-data.service';
 
@@ -24,9 +25,10 @@ export class MarketComponent implements OnInit {
     'current_price',
     'price_change_percentage_24h',
     'market_cap',
+    'actions',
   ];
 
-  constructor(private cryptoData: CryptoDataService) {}
+  constructor(private cryptoData: CryptoDataService, private router: Router) {}
 
   ngOnInit(): void {
     this.getAllData();
@@ -50,5 +52,9 @@ export class MarketComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  viewCoin(id: string) {
+    this.router.navigateByUrl(`/market/${id}`);
   }
 }

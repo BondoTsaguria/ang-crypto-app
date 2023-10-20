@@ -46,6 +46,13 @@ const routes: Routes = [
         (mod) => mod.MarketModule
       ),
   },
+  {
+    path: 'market/:id',
+    loadChildren: () =>
+      import('../../features/market/modules/market.module').then(
+        (mod) => mod.MarketModule
+      ),
+  },
 ];
 
 @NgModule({
