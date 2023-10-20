@@ -3,15 +3,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { mainCryptoData } from 'src/app/shared/interfaces/crypto-data.interface';
 
 import { CryptoDataService } from 'src/app/shared/services/crypto-data.service';
-
-export interface UserData {
-  symbol: string;
-  current_price: string;
-  price_change_percentage_24h: string;
-  market_cap: string;
-}
 
 @Component({
   selector: 'app-market',
@@ -19,7 +13,7 @@ export interface UserData {
   styleUrls: ['./market.component.scss'],
 })
 export class MarketComponent implements OnInit {
-  dataSource!: MatTableDataSource<UserData>;
+  dataSource!: MatTableDataSource<mainCryptoData>;
   displayedColumns: string[] = [
     'symbol',
     'current_price',

@@ -20,4 +20,8 @@ export class CryptoDataService {
       `${this.url}/markets?vs_currency=${currency}&order=market_cup_desc&sparkline=false`
     );
   }
+
+  getCurrencyById(coinId: string) {
+    return this.http.get<any>(`${this.url}/${coinId}`);
+  }
 }
