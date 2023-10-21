@@ -13,6 +13,7 @@ export class LogoutComponent {
   ngOnInit() {
     this.authService.setLoggedIn(false);
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('currentUserId');
     this.router.navigateByUrl('/home');
   }
 }

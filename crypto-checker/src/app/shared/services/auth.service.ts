@@ -9,6 +9,13 @@ export class AuthService {
     localStorage.getItem('isLoggedIn') === 'true'
   );
 
+  private currentUserIdSubject = new BehaviorSubject<number | null>(
+    // Retrieve the current user's ID from localStorage
+    localStorage.getItem('currentUserId')
+      ? parseInt(localStorage.getItem('currentUserId')!, 10)
+      : null
+  );
+
   constructor() {}
 
   setLoggedIn(value: boolean) {
@@ -17,5 +24,19 @@ export class AuthService {
   }
   isLoggedIn(): boolean {
     return this.isLoggedInSubject.value;
+  }
+
+  setCurrentUserId(userId: number | null) {
+    this.currentUserIdSubject.next(userId);
+    // Store the current user's ID in localStorage
+    if (userId !== null) {
+      localStorage.setItem('currentUserId', userId.toString());
+    } else {
+      localStorage.removeItem('currentUserId');
+    }
+  }
+
+  getCurrentUserId(): number | null {
+    return this.currentUserIdSubject.value;
   }
 }

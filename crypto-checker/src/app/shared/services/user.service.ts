@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   private apiUrl = 'http://localhost:3000/users';
+  private loggedInUserUrl = 'http://localhost:3000/loggedInUsers';
 
   constructor(private http: HttpClient) {}
 
@@ -21,11 +22,13 @@ export class UserService {
     return this.http.get<UserData[]>(this.apiUrl);
   }
 
-  // deleteUser(user: UserData) {
-  //   const index = this.registeredUsers.findIndex((u) => u.id === user.id);
-  //   if (index !== -1) {
-  //     this.registeredUsers.splice(index, 1);
-  //     console.log('User removed from registeredUsers array:', user);
-  //   }
-  // }
+  // Method to add a new logged-in user
+  addLoggedInUser(userData: UserData): Observable<UserData> {
+    return this.http.post<UserData>(this.loggedInUserUrl, userData);
+  }
+
+  // Method to get the logged-in user
+  getLoggedInUser(): Observable<UserData[]> {
+    return this.http.get<UserData[]>(this.loggedInUserUrl);
+  }
 }

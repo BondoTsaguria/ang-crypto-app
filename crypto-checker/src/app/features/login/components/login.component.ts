@@ -39,6 +39,10 @@ export class LoginComponent {
           if (user) {
             this.authService.setLoggedIn(true);
             this.formGroup.reset();
+            this.userService
+              .addLoggedInUser(user)
+              .subscribe((res) => console.log(res));
+            this.authService.setCurrentUserId(user.id || null);
             this.router.navigateByUrl('/market');
           } else {
             // Invalid email or password

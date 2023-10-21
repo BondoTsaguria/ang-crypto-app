@@ -2,14 +2,13 @@
   <div class="coin-details__a">
     <div class="coin-image">
       <img [src]="coinData?.image?.large" alt="Coin Image" />
+      <h1>{{ coinData?.name }} ({{ coinData?.symbol | uppercase }})</h1>
     </div>
     <div class="coin-basic-info">
-      <h1>{{ coinData?.name }} ({{ coinData?.symbol }})</h1>
       <p>{{ coinData?.description?.en }}</p>
     </div>
   </div>
 
-  <!-- Coin Details (Left Side) -->
   <div class="coin-details__b">
     <div class="coin-detail">
       <h2>Community Score</h2>
