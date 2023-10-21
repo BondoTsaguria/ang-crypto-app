@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
-import { MatIconModule } from '@angular/material/icon';
 import { CoinDetailsComponent } from '../components/coin-details/coin-details.component';
 
 @NgModule({
@@ -24,7 +23,6 @@ import { CoinDetailsComponent } from '../components/coin-details/coin-details.co
     MatFormFieldModule,
     MatInputModule,
     MatSortModule,
-    MatIconModule,
   ],
 })
 export class MarketModule {}

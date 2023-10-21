@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CoinData } from 'src/app/shared/interfaces/coin-data.interface';
 import { CryptoDataService } from 'src/app/shared/services/crypto-data.service';
 
 @Component({
@@ -8,10 +9,9 @@ import { CryptoDataService } from 'src/app/shared/services/crypto-data.service';
   styleUrls: ['./coin-details.component.scss'],
 })
 export class CoinDetailsComponent implements OnInit {
-  coinData!: Object;
+  coinData: CoinData | null = null;
   coinId!: string;
-  day: number = 1;
-  currency: string = 'USD';
+
   constructor(
     private cryptoData: CryptoDataService,
     private activatedRoute: ActivatedRoute
@@ -25,6 +25,22 @@ export class CoinDetailsComponent implements OnInit {
     this.cryptoData.getCurrencyById(this.coinId).subscribe((res) => {
       this.coinData = res;
       console.log(this.coinData);
+      this.coinData!.description.en = this.truncateDescription(
+        this.coinData!.description.en,
+        5
+      );
     });
+  }
+
+  truncateDescription(
+    description: string | undefined,
+    maxLength: number
+  ): string {
+    if (!description) {
+      return '';
+    }
+    const sentences = description.split('. ');
+    const truncatedDescription = sentences.slice(0, maxLength).join('. ');
+    return truncatedDescription;
   }
 }
