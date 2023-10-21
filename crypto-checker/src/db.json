@@ -1,42 +1,4 @@
 {
-  "users": [
-    {
-      "email": "caguria1@gmail.com",
-      "password": "12312312",
-      "confirmPassword": "12312312",
-      "nickname": "bondo-123",
-      "phoneNumber": "+995555555555",
-      "agreement": true,
-      "id": 1
-    },
-    {
-      "email": "bondotsaguria@gmail.com",
-      "password": "22222222",
-      "confirmPassword": "22222222",
-      "nickname": "bondo-123",
-      "phoneNumber": "+995555555555",
-      "agreement": true,
-      "id": 2
-    }
-  ],
-  "loggedInUsers": [
-    {
-      "email": "caguria1@gmail.com",
-      "password": "12312312",
-      "confirmPassword": "12312312",
-      "nickname": "bondo-123",
-      "phoneNumber": "+995555555555",
-      "agreement": true,
-      "id": 1
-    },
-    {
-      "email": "bondotsaguria@gmail.com",
-      "password": "22222222",
-      "confirmPassword": "22222222",
-      "nickname": "bondo-123",
-      "phoneNumber": "+995555555555",
-      "agreement": true,
-      "id": 2
-    }
-  ]
+  "users": [],
+  "loggedInUsers": []
 }

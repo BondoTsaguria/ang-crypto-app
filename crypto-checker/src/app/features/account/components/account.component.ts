@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserData } from 'src/app/shared/interfaces/user-data.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -14,7 +15,8 @@ export class AccountComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,5 +33,26 @@ export class AccountComponent implements OnInit {
     this.userService.getRegisteredUsers().subscribe((users) => {
       this.registeredUsers = users;
     });
+  }
+
+  deleteUser(user: UserData) {
+    const confirmDelete = confirm(
+      `Are you sure you want to delete the user with ID ${user.email}?`
+    );
+
+    if (confirmDelete) {
+      // Remove the user from the UI
+      this.registeredUsers = this.registeredUsers.filter(
+        (u) => u.id !== user.id
+      );
+
+      // Remove the user from the servers
+      this.userService.deleteUser(user.id).subscribe();
+      this.userService.deleteLoggedInUser(user.id).subscribe();
+      this.router.navigateByUrl('/home');
+      this.authService.setLoggedIn(false);
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('currentUserId');
+    }
   }
 }

@@ -31,4 +31,15 @@ export class UserService {
   getLoggedInUser(): Observable<UserData[]> {
     return this.http.get<UserData[]>(this.loggedInUserUrl);
   }
+
+  // Method to delete a registered user
+  deleteUser(id: number | undefined): Observable<UserData> {
+    const userUrl = `${this.apiUrl}/${id}`;
+    return this.http.delete<UserData>(userUrl);
+  }
+
+  deleteLoggedInUser(id: number | undefined): Observable<UserData> {
+    const userUrl = `${this.loggedInUserUrl}/${id}`;
+    return this.http.delete<UserData>(userUrl);
+  }
 }

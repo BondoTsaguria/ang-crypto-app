@@ -2,4 +2,31 @@
   <h2>Account Details</h2>
   <p>Email: {{ loggedInUser?.email }}</p>
   <p>Nickname: {{ loggedInUser?.nickname }}</p>
+
+  <h2>Registered Users</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Nickname</th>
+        <th>Phone Number</th>
+        <th>Action</th>
+        <!-- New column for the delete button -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of registeredUsers">
+        <td>{{ user.id }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+        <td>{{ user.nickname }}</td>
+        <td>{{ user.phoneNumber }}</td>
+        <td>
+          <button (click)="deleteUser(user)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

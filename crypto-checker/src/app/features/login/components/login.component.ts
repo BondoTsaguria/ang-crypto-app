@@ -41,7 +41,7 @@ export class LoginComponent {
             this.formGroup.reset();
             this.userService
               .addLoggedInUser(user)
-              .subscribe((res) => console.log(res));
+              .subscribe((res) => console.log('logged in user', res));
             this.authService.setCurrentUserId(user.id || null);
             this.router.navigateByUrl('/market');
           } else {
