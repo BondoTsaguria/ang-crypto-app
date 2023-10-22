@@ -20,22 +20,7 @@ export class LogoutComponent {
   ngOnInit() {
     this.authService.setLoggedIn(false);
     localStorage.removeItem('isLoggedIn');
-    const currentUserId = this.authService.getCurrentUserId();
-    if (currentUserId !== null) {
-      this.userService.getLoggedInUser().subscribe((users) => {
-        this.loggedInUser =
-          users.find((user) => user.id === currentUserId) || null;
-
-        if (this.loggedInUser) {
-          // User with currentUserId found, proceed with deletion
-          this.userService.deleteLoggedInUser(currentUserId).subscribe(() => {
-            localStorage.removeItem('currentUserId');
-            this.router.navigateByUrl('/home');
-          });
-        } else {
-          console.error('User with currentUserId not found.');
-        }
-      });
-    }
+    localStorage.removeItem('currentUserId');
+    this.router.navigateByUrl('/home');
   }
 }

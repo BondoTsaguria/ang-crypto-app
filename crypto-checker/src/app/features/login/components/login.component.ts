@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ExchangeService } from 'src/app/shared/services/exchange.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private exchangeService: ExchangeService
   ) {
     this.formGroup = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -37,13 +39,34 @@ export class LoginComponent {
           );
 
           if (user) {
-            this.authService.setLoggedIn(true);
-            this.formGroup.reset();
-            this.userService
-              .addLoggedInUser(user)
-              .subscribe((res) => console.log('logged in user', res));
-            this.authService.setCurrentUserId(user.id || null);
-            this.router.navigateByUrl('/market');
+            // Check if the user already exists in loggedInUsers
+            this.userService.getLoggedInUser().subscribe(
+              (loggedInUsers) => {
+                const loggedInUser = loggedInUsers.find(
+                  (u) => u.email === email && u.password === password
+                );
+
+                if (loggedInUser) {
+                  this.authService.setLoggedIn(true);
+                  this.formGroup.reset();
+                  this.authService.setCurrentUserId(user.id || null);
+                  this.router.navigateByUrl('/market');
+                } else {
+                  // User not already logged in, add to loggedInUsers
+                  this.authService.setLoggedIn(true);
+                  this.formGroup.reset();
+                  this.userService.addLoggedInUser(user).subscribe((res) => {
+                    console.log(res);
+                  });
+                  this.authService.setCurrentUserId(user.id || null);
+                  this.router.navigateByUrl('/market');
+                }
+              },
+              (error) => {
+                // Handle error when fetching loggedInUsers
+                console.error('Error fetching loggedInUsers:', error);
+              }
+            );
           } else {
             // Invalid email or password
             this.formGroup.get('email')?.setErrors({ invalidEmail: true });

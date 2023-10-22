@@ -11,7 +11,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class AccountComponent implements OnInit {
   loggedInUser: UserData | null = null;
-  registeredUsers: UserData[] = [];
+  loggedInUsers: UserData[] = [];
 
   constructor(
     private userService: UserService,
@@ -27,12 +27,12 @@ export class AccountComponent implements OnInit {
         this.loggedInUser =
           users.find((user) => user.id === currentUserId) || null;
       });
-    }
 
-    // Fetch the list of registered users
-    this.userService.getRegisteredUsers().subscribe((users) => {
-      this.registeredUsers = users;
-    });
+      // Fetch the list of logged in users
+      this.userService.getLoggedInUser().subscribe((users) => {
+        this.loggedInUsers = users.filter((user) => user.id === currentUserId);
+      });
+    }
   }
 
   deleteUser(user: UserData) {
@@ -42,9 +42,7 @@ export class AccountComponent implements OnInit {
 
     if (confirmDelete) {
       // Remove the user from the UI
-      this.registeredUsers = this.registeredUsers.filter(
-        (u) => u.id !== user.id
-      );
+      this.loggedInUsers = this.loggedInUsers.filter((u) => u.id !== user.id);
 
       // Remove the user from the servers
       this.userService.deleteUser(user.id).subscribe();

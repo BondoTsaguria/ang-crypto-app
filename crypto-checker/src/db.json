@@ -1,4 +1,25 @@
 {
-  "users": [],
-  "loggedInUsers": []
+  "users": [
+    {
+      "email": "bondotsaguria@gmail.com",
+      "password": "22222222",
+      "confirmPassword": "22222222",
+      "nickname": "barbi-123",
+      "phoneNumber": "+995555555555",
+      "agreement": true,
+      "id": 2
+    }
+  ],
+  "loggedInUsers": [
+    {
+      "email": "bondotsaguria@gmail.com",
+      "password": "22222222",
+      "confirmPassword": "22222222",
+      "nickname": "barbi-123",
+      "phoneNumber": "+995555555555",
+      "agreement": true,
+      "id": 2,
+      "balance": 0
+    }
+  ]
 }

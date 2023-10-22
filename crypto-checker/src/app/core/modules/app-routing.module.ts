@@ -53,6 +53,20 @@ const routes: Routes = [
         (mod) => mod.MarketModule
       ),
   },
+  {
+    path: 'deposit',
+    loadChildren: () =>
+      import('../../features/exchange/modules/deposit/deposit.module').then(
+        (mod) => mod.DepositModule
+      ),
+  },
+  {
+    path: 'wallet',
+    loadChildren: () =>
+      import('../../features/exchange/modules/wallet/wallet.module').then(
+        (mod) => mod.WalletModule
+      ),
+  },
 ];
 
 @NgModule({

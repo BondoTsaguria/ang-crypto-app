@@ -7,6 +7,7 @@ export interface CoinData {
   description: {
     en: string;
   };
+  current_price: number;
   community_score: number;
   market_cap_rank: number;
   liquidity_score: number;

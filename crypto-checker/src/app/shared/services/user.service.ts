@@ -24,7 +24,11 @@ export class UserService {
 
   // Method to add a new logged-in user
   addLoggedInUser(userData: UserData): Observable<UserData> {
-    return this.http.post<UserData>(this.loggedInUserUrl, userData);
+    const loggedInUserData = {
+      ...userData,
+      balance: 0,
+    };
+    return this.http.post<UserData>(this.loggedInUserUrl, loggedInUserData);
   }
 
   // Method to get the logged-in user

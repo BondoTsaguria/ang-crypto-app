@@ -22,6 +22,18 @@
     >
       Market
     </a>
+    <a
+      [routerLink]="['/deposit']"
+      routerLinkActive="active"
+      *ngIf="authService.isLoggedIn()"
+      >Deposit</a
+    >
+    <a
+      [routerLink]="['/wallet']"
+      routerLinkActive="active"
+      *ngIf="authService.isLoggedIn()"
+      >Wallet</a
+    >
   </div>
   <div class="top-bar__actions">
     <a

@@ -6,4 +6,5 @@ export interface UserData {
   nickname: string;
   phoneNumber: string;
   agreement?: boolean;
+  balance?: number;
 }
