@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UserData } from 'src/app/shared/interfaces/user-data.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ExchangeService } from 'src/app/shared/services/exchange.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-deposit',
@@ -13,22 +15,31 @@ export class DepositComponent implements OnInit {
 
   constructor(
     private exchangeService: ExchangeService,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
-    this.exchangeService.getBalance().subscribe((balance) => {
-      this.accountBalance = balance;
+    const currentUserId = this.authService.getCurrentUserId();
+    this.userService.getLoggedInUser().subscribe((users) => {
+      const user = users.find((user) => user.id === currentUserId);
+      this.accountBalance = user?.balance!;
     });
   }
 
   deposit(depositAmount: number) {
-    if (this.depositAmount > 0) {
-      // Add the deposit amount to the balance using the service
-      this.exchangeService.deposit(depositAmount);
-      // Update the balance on the server
+    if (depositAmount > 0) {
+      const currentUserId = this.authService.getCurrentUserId();
 
-      this.depositAmount = 0;
+      if (currentUserId) {
+        // Call the deposit method from the ExchangeService to update the balance
+        this.exchangeService
+          .deposit(currentUserId, depositAmount)
+          .subscribe((res) => {
+            this.accountBalance = res.balance!;
+            this.depositAmount = 0;
+          });
+      }
     }
   }
 }

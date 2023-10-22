@@ -1,23 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { AuthService } from './auth.service';
+
+import { UserData } from '../interfaces/user-data.interface';
+import { Observable, mergeMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExchangeService {
-  private balanceSubject = new BehaviorSubject<number>(0);
+  private baseUrl = 'http://localhost:3000/loggedInUsers';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  deposit(userId: number, depositAmount: number): Observable<UserData> {
+    const url = `${this.baseUrl}/${userId}`;
 
-  deposit(amount: number) {
-    const currentBalance = this.balanceSubject.value;
-    const newBalance = currentBalance + amount;
-    this.balanceSubject.next(newBalance);
-  }
+    return this.http.get<UserData>(url).pipe(
+      mergeMap((user) => {
+        const newBalance = user.balance! + depositAmount;
+        const balanceUpdate = { balance: newBalance };
 
-  getBalance(): Observable<number> {
-    return this.balanceSubject.asObservable();
+        return this.http.patch<UserData>(url, balanceUpdate);
+      })
+    );
   }
 }
