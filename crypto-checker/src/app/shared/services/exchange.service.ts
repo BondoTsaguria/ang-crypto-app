@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { UserData } from '../interfaces/user-data.interface';
 import { Observable, mergeMap } from 'rxjs';
+import { ownedCryptoes } from '../interfaces/owned-cryptoes.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -29,5 +30,24 @@ export class ExchangeService {
     const balanceUpdate = { balance: newBalance };
 
     return this.http.patch<UserData>(userUrl, balanceUpdate);
+  }
+
+  updateCryptocurrenciesRecord(
+    userId: number,
+    updatedList: ownedCryptoes[]
+  ): Observable<UserData> {
+    const userUrl = `${this.baseUrl}/${userId}`;
+    const updatedCurrencies = { cryptocurrencies: updatedList };
+
+    return this.http.patch<UserData>(userUrl, updatedCurrencies);
+  }
+
+  updateMycurrenciesList(
+    inputData: ownedCryptoes[],
+    userId: number
+  ): Observable<UserData> {
+    const userUrl = `${this.baseUrl}/${userId}`;
+    const updatedCurrencies = { mycurrencies: inputData };
+    return this.http.patch<UserData>(userUrl, updatedCurrencies);
   }
 }

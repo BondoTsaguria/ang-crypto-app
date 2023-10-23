@@ -27,6 +27,8 @@ export class UserService {
     const loggedInUserData = {
       ...userData,
       balance: 0,
+      cryptocurrencies: [],
+      mycurrencies: [],
     };
     return this.http.post<UserData>(this.loggedInUserUrl, loggedInUserData);
   }

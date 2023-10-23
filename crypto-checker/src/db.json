@@ -19,7 +19,55 @@
       "phoneNumber": "+995555555555",
       "agreement": true,
       "id": 2,
-      "balance": 3500
+      "balance": 850,
+      "cryptocurrencies": [
+        {
+          "symbol": "btc",
+          "usdAmount": 500
+        },
+        {
+          "symbol": "btc",
+          "usdAmount": 500
+        },
+        {
+          "symbol": "eth",
+          "usdAmount": 100
+        },
+        {
+          "symbol": "eth",
+          "usdAmount": -50
+        },
+        {
+          "symbol": "xrp",
+          "usdAmount": 100
+        },
+        {
+          "symbol": "xrp",
+          "usdAmount": -30
+        },
+        {
+          "symbol": "sol",
+          "usdAmount": 30
+        }
+      ],
+      "mycurrencies": [
+        {
+          "symbol": "btc",
+          "usdAmount": 1000
+        },
+        {
+          "symbol": "eth",
+          "usdAmount": 50
+        },
+        {
+          "symbol": "xrp",
+          "usdAmount": 70
+        },
+        {
+          "symbol": "sol",
+          "usdAmount": 30
+        }
+      ]
     }
   ]
 }

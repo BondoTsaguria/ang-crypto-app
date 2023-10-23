@@ -35,4 +35,30 @@
   <div class="form-group">
     <button (click)="sellCryptocurrency()">Sell</button>
   </div>
+
+  <div *ngIf="userData">
+    <h2>Buy/Sell record</h2>
+    <table>
+      <tr>
+        <th>Coin</th>
+        <th>USD</th>
+      </tr>
+      <tr *ngFor="let crypto of userData.cryptocurrencies">
+        <td>{{ crypto.symbol }}</td>
+        <td>{{ crypto.usdAmount }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <h2>Cryptocurrencies</h2>
+  <table>
+    <tr>
+      <th>Coin</th>
+      <th>Total/USD</th>
+    </tr>
+    <tr *ngFor="let crypto of myCurrencies">
+      <td>{{ crypto.symbol }}</td>
+      <td>{{ crypto.usdAmount }}</td>
+    </tr>
+  </table>
 </div>

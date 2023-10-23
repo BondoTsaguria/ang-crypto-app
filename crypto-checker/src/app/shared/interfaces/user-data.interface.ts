@@ -1,3 +1,5 @@
+import { ownedCryptoes } from './owned-cryptoes.interface';
+
 export interface UserData {
   id?: number;
   email: string;
@@ -7,4 +9,6 @@ export interface UserData {
   phoneNumber: string;
   agreement?: boolean;
   balance?: number;
+  cryptocurrencies: ownedCryptoes[];
+  mycurrencies: ownedCryptoes[];
 }
