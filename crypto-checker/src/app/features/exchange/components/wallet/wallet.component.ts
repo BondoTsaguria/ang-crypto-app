@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { mainCryptoData } from 'src/app/shared/interfaces/crypto-data.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { CryptoDataService } from 'src/app/shared/services/crypto-data.service';
+import { ExchangeService } from 'src/app/shared/services/exchange.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class WalletComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private userService: UserService,
-    private cryptoDataService: CryptoDataService
+    private cryptoDataService: CryptoDataService,
+    private exchangeService: ExchangeService
   ) {}
 
   ngOnInit(): void {
@@ -32,7 +34,32 @@ export class WalletComponent implements OnInit {
     });
   }
 
+  updateBalanceChange(newBalance: number) {
+    // Update the server balance
+    const currentUserId = this.authService.getCurrentUserId();
+    if (currentUserId) {
+      this.exchangeService
+        .updateUserBalance(currentUserId, newBalance)
+        .subscribe((updatedUser) => {
+          // Update the local balance with the response from the server
+          this.accountBalance = updatedUser.balance!;
+          // Clear the USD amount input field
+          this.usdAmount = 0;
+        });
+    }
+  }
+
   buyCryptocurrency() {
-    console.log('works');
+    if (this.usdAmount <= 0) return;
+    // Calculate the new balance
+    const newBalance = this.accountBalance - this.usdAmount;
+    this.updateBalanceChange(newBalance);
+  }
+
+  sellCryptocurrency() {
+    if (this.usdAmount <= 0) return;
+    // Calculate the new balance
+    const newBalance = this.accountBalance + this.usdAmount;
+    this.updateBalanceChange(newBalance);
   }
 }

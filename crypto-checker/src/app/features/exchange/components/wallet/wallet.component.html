@@ -1,29 +1,38 @@
-<h2>balance</h2>
-<div>{{ accountBalance }}</div>
+<div class="wallet-container">
+  <h2>balance</h2>
+  <div>{{ accountBalance }}</div>
 
-<form (ngSubmit)="buyCryptocurrency()">
+  <form>
+    <div class="form-group">
+      <label for="usdAmount">Enter USD Amount:</label>
+      <input
+        type="number"
+        id="usdAmount"
+        [(ngModel)]="usdAmount"
+        name="usdAmount"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="cryptoType">Select Cryptocurrency:</label>
+      <select
+        id="cryptoType"
+        [(ngModel)]="selectedCrypto"
+        name="selectedCrypto"
+      >
+        <option *ngFor="let crypto of cryptocurrencies" [value]="crypto.symbol">
+          ({{ crypto.symbol }})
+        </option>
+      </select>
+    </div>
+  </form>
+
   <div class="form-group">
-    <label for="usdAmount">Enter USD Amount:</label>
-    <input
-      type="number"
-      id="usdAmount"
-      [(ngModel)]="usdAmount"
-      name="usdAmount"
-      required
-    />
+    <button (click)="buyCryptocurrency()">Buy</button>
   </div>
 
   <div class="form-group">
-    <label for="cryptoType">Select Cryptocurrency:</label>
-    <select id="cryptoType" [(ngModel)]="selectedCrypto" name="selectedCrypto">
-      <!-- Populate this dropdown with cryptocurrency options from the API -->
-      <option *ngFor="let crypto of cryptocurrencies" [value]="crypto.symbol">
-        ({{ crypto.symbol }})
-      </option>
-    </select>
+    <button (click)="sellCryptocurrency()">Sell</button>
   </div>
-
-  <div class="form-group">
-    <button type="submit">Buy</button>
-  </div>
-</form>
+</div>

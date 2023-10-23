@@ -23,4 +23,11 @@ export class ExchangeService {
       })
     );
   }
+
+  updateUserBalance(userId: number, newBalance: number): Observable<UserData> {
+    const userUrl = `${this.baseUrl}/${userId}`;
+    const balanceUpdate = { balance: newBalance };
+
+    return this.http.patch<UserData>(userUrl, balanceUpdate);
+  }
 }
