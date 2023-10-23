@@ -44,6 +44,7 @@ export class WalletComponent implements OnInit {
     });
   }
 
+  //Update the balance
   updateBalanceChange(newBalance: number) {
     // Update the server balance
     const currentUserId = this.authService.getCurrentUserId();
@@ -58,6 +59,8 @@ export class WalletComponent implements OnInit {
         });
     }
   }
+
+  //Update the bought/sold record
   updateCryptosRecord(usdAmount: number, selectedCrypto: string) {
     const currentUserId = this.authService.getCurrentUserId();
     if (currentUserId) {
@@ -95,6 +98,7 @@ export class WalletComponent implements OnInit {
     }
   }
 
+  // Update the currently held coin list
   updateMycurrencies() {
     const currentUserId = this.authService.getCurrentUserId();
 
@@ -112,7 +116,6 @@ export class WalletComponent implements OnInit {
         }
       });
 
-      console.log(symbolMap);
       const resultArray: ownedCryptoes[] = Object.values(symbolMap);
 
       this.exchangeService
@@ -123,6 +126,7 @@ export class WalletComponent implements OnInit {
     });
   }
 
+  // Buy / Sell methods
   buyCryptocurrency() {
     if (this.usdAmount <= 0) return;
     this.buttonClicked = true;

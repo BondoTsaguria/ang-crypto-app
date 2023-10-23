@@ -12,6 +12,7 @@ export class ExchangeService {
   private baseUrl = 'http://localhost:3000/loggedInUsers';
   constructor(private http: HttpClient) {}
 
+  //Update balance after deposit
   deposit(userId: number, depositAmount: number): Observable<UserData> {
     const url = `${this.baseUrl}/${userId}`;
 
@@ -25,6 +26,7 @@ export class ExchangeService {
     );
   }
 
+  //Update balance
   updateUserBalance(userId: number, newBalance: number): Observable<UserData> {
     const userUrl = `${this.baseUrl}/${userId}`;
     const balanceUpdate = { balance: newBalance };
@@ -32,6 +34,7 @@ export class ExchangeService {
     return this.http.patch<UserData>(userUrl, balanceUpdate);
   }
 
+  //Update bought/sold coins record
   updateCryptocurrenciesRecord(
     userId: number,
     updatedList: ownedCryptoes[]
@@ -42,6 +45,7 @@ export class ExchangeService {
     return this.http.patch<UserData>(userUrl, updatedCurrencies);
   }
 
+  //Update coin list
   updateMycurrenciesList(
     inputData: ownedCryptoes[],
     userId: number

@@ -1,71 +1,106 @@
 {
   "users": [
     {
+      "email": "caguria1@gmail.com",
+      "password": "11111111",
+      "confirmPassword": "11111111",
+      "nickname": "bondo-123",
+      "phoneNumber": "+995555555555",
+      "agreement": true,
+      "id": 1
+    },
+    {
       "email": "bondotsaguria@gmail.com",
       "password": "22222222",
       "confirmPassword": "22222222",
       "nickname": "barbi-123",
-      "phoneNumber": "+995555555555",
+      "phoneNumber": "+995555555500",
       "agreement": true,
       "id": 2
     }
   ],
   "loggedInUsers": [
     {
-      "email": "bondotsaguria@gmail.com",
-      "password": "22222222",
-      "confirmPassword": "22222222",
-      "nickname": "barbi-123",
+      "email": "caguria1@gmail.com",
+      "password": "11111111",
+      "confirmPassword": "11111111",
+      "nickname": "bondo-123",
       "phoneNumber": "+995555555555",
       "agreement": true,
-      "id": 2,
-      "balance": 850,
+      "id": 1,
+      "balance": 300,
       "cryptocurrencies": [
         {
           "symbol": "btc",
-          "usdAmount": 500
-        },
-        {
-          "symbol": "btc",
-          "usdAmount": 500
-        },
-        {
-          "symbol": "eth",
           "usdAmount": 100
-        },
-        {
-          "symbol": "eth",
-          "usdAmount": -50
-        },
-        {
-          "symbol": "xrp",
-          "usdAmount": 100
-        },
-        {
-          "symbol": "xrp",
-          "usdAmount": -30
         },
         {
           "symbol": "sol",
-          "usdAmount": 30
+          "usdAmount": 200
+        },
+        {
+          "symbol": "sol",
+          "usdAmount": -30
+        },
+        {
+          "symbol": "btc",
+          "usdAmount": -40
+        },
+        {
+          "symbol": "eth",
+          "usdAmount": 500
+        },
+        {
+          "symbol": "eth",
+          "usdAmount": -30
         }
       ],
       "mycurrencies": [
         {
           "symbol": "btc",
-          "usdAmount": 1000
-        },
-        {
-          "symbol": "eth",
-          "usdAmount": 50
-        },
-        {
-          "symbol": "xrp",
-          "usdAmount": 70
+          "usdAmount": 60
         },
         {
           "symbol": "sol",
-          "usdAmount": 30
+          "usdAmount": 170
+        },
+        {
+          "symbol": "eth",
+          "usdAmount": 470
+        }
+      ]
+    },
+    {
+      "email": "bondotsaguria@gmail.com",
+      "password": "22222222",
+      "confirmPassword": "22222222",
+      "nickname": "barbi-123",
+      "phoneNumber": "+995555555500",
+      "agreement": true,
+      "id": 2,
+      "balance": 420,
+      "cryptocurrencies": [
+        {
+          "symbol": "ada",
+          "usdAmount": 400
+        },
+        {
+          "symbol": "doge",
+          "usdAmount": 200
+        },
+        {
+          "symbol": "doge",
+          "usdAmount": -20
+        }
+      ],
+      "mycurrencies": [
+        {
+          "symbol": "ada",
+          "usdAmount": 400
+        },
+        {
+          "symbol": "doge",
+          "usdAmount": 180
         }
       ]
     }
