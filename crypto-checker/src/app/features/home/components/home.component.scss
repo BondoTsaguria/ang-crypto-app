@@ -1,37 +1,37 @@
+@import "../../../shared/styles/shared.scss";
 .background-image {
   width: 100%;
   height: 100%;
   background-image: url(../../../../assets/imgs/back-img.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  filter: blur(1.5px);
+  filter: blur(0.15rem);
   position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
 }
 .home {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  @include flex-column;
+  gap: 2rem;
   height: 100%;
 
   .header {
-    color: #fff;
-    margin-top: 30px;
+    height: 35%;
+    color: $white;
+    margin-top: 3rem;
     text-align: center;
     .main-heading {
-      font-weight: bold;
-      margin-bottom: 15px;
-      font-size: 36px;
+      margin-bottom: 1.5rem;
+      font-size: 4.8rem;
       line-height: 1.2;
       letter-spacing: 0.08em;
       color: transparent;
-      -webkit-text-stroke: 0.7px #fff;
+      -webkit-text-stroke: 0.07rem $white;
     }
     .secondary-heading {
       text-transform: capitalize;
-      font-size: 16px;
+      font-size: 2.4rem;
       font-weight: 500;
       line-height: 1.57;
       letter-spacing: 0.08em;
@@ -39,32 +39,34 @@
   }
 
   .sub-header {
-    height: 100%;
+    height: 65%;
+    marquee {
+      height: 100%;
+      ng-container {
+        height: 100%;
+      }
+    }
     .crypto-grid {
-      height: 400px;
-      display: grid;
+      height: 100%;
+      @include grid-align-justify;
       grid-template-rows: repeat(1, 1fr);
       grid-template-columns: repeat(9, 1fr);
-      column-gap: 30px;
-      align-items: center;
-      justify-content: center;
-
+      column-gap: 3rem;
       .crypto-item {
-        color: #fff;
+        color: $white;
         display: flex;
-        gap: 10px;
-
+        gap: 1rem;
         justify-content: center;
         text-align: center;
         img {
-          max-width: 70px;
+          max-width: 7rem;
         }
         .crypto-symbol {
-          margin-top: 10px;
+          margin-top: 1rem;
           font-weight: bold;
         }
         .crypto-price {
-          margin-top: 10px;
+          margin-top: 1rem;
         }
       }
     }

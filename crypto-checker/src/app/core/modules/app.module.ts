@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from '../guards/auth.guard';
 import { LoginGuard } from '../guards/login.guard';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent, TopBarComponent],
@@ -16,6 +17,7 @@ import { LoginGuard } from '../guards/login.guard';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    RouterModule,
   ],
   providers: [AuthGuard, LoginGuard],
   bootstrap: [AppComponent],

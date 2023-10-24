@@ -1,5 +1,5 @@
 <div class="top-bar">
-  <div class="top-bar__mainactions">
+  <div class="top-bar__actions">
     <img
       class="crypto-img"
       src="../../../../assets/imgs/Bitcoin.png"
@@ -23,12 +23,14 @@
       Market
     </a>
     <a
+      class="deposit"
       [routerLink]="['/deposit']"
       routerLinkActive="active"
       *ngIf="authService.isLoggedIn()"
       >Deposit</a
     >
     <a
+      class="wallet"
       [routerLink]="['/wallet']"
       routerLinkActive="active"
       *ngIf="authService.isLoggedIn()"
