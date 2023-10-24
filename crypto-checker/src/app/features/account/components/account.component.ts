@@ -63,4 +63,8 @@ export class AccountComponent implements OnInit {
       this.cdr.detectChanges();
     }
   }
+
+  goToDeposit() {
+    this.router.navigateByUrl('/deposit');
+  }
 }

@@ -1,7 +1,7 @@
 @import "../../../shared/styles/shared.scss";
 .top-bar {
   height: 100%;
-  background-color: $topbar-backcolor;
+  background-color: $secondary;
   @include flex-align;
   justify-content: space-between;
 
@@ -12,7 +12,7 @@
     @include flex-align;
 
     .active {
-      color: $topbar-hover;
+      color: $main;
     }
 
     a {
@@ -22,7 +22,7 @@
       transition: color 0.3s;
     }
     a:hover {
-      color: $topbar-hover;
+      color: $main;
     }
     .crypto-img {
       width: 4rem;
