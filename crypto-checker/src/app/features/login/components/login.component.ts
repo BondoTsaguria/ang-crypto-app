@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { ExchangeService } from 'src/app/shared/services/exchange.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
   formGroup: FormGroup;
@@ -18,7 +22,7 @@ export class LoginComponent {
     private userService: UserService,
     private router: Router,
     private authService: AuthService,
-    private exchangeService: ExchangeService
+    private cdr: ChangeDetectorRef
   ) {
     this.formGroup = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -30,6 +34,7 @@ export class LoginComponent {
     if (this.formGroup.valid) {
       const email = this.formGroup.value.email;
       const password = this.formGroup.value.password;
+      this.cdr.detectChanges();
 
       // Fetch registered users from JSON server
       this.userService.getRegisteredUsers().subscribe(
@@ -37,8 +42,10 @@ export class LoginComponent {
           const user = registeredUsers.find(
             (user) => user.email === email && user.password === password
           );
+          this.cdr.detectChanges();
 
           if (user) {
+            this.cdr.detectChanges();
             // Check if the user already exists in loggedInUsers
             this.userService.getLoggedInUser().subscribe(
               (loggedInUsers) => {
@@ -51,6 +58,7 @@ export class LoginComponent {
                   this.formGroup.reset();
                   this.authService.setCurrentUserId(user.id || null);
                   this.router.navigateByUrl('/market');
+                  this.cdr.detectChanges();
                 } else {
                   // User not already logged in, add to loggedInUsers
                   this.authService.setLoggedIn(true);
@@ -60,11 +68,13 @@ export class LoginComponent {
                   });
                   this.authService.setCurrentUserId(user.id || null);
                   this.router.navigateByUrl('/market');
+                  this.cdr.detectChanges();
                 }
               },
               (error) => {
                 // Handle error when fetching loggedInUsers
                 console.error('Error fetching loggedInUsers:', error);
+                this.cdr.detectChanges();
               }
             );
           } else {
@@ -73,11 +83,13 @@ export class LoginComponent {
             this.formGroup
               .get('password')
               ?.setErrors({ invalidPassword: true });
+            this.cdr.detectChanges();
           }
         },
         (error) => {
           // Handle error when fetching users
           console.error('Error fetching registered users:', error);
+          this.cdr.detectChanges();
         }
       );
     }

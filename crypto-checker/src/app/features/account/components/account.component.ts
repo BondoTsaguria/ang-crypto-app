@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { UserData } from 'src/app/shared/interfaces/user-data.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -8,6 +13,7 @@ import { UserService } from 'src/app/shared/services/user.service';
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountComponent implements OnInit {
   loggedInUser: UserData | null = null;
@@ -16,7 +22,8 @@ export class AccountComponent implements OnInit {
   constructor(
     private userService: UserService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -26,11 +33,13 @@ export class AccountComponent implements OnInit {
       this.userService.getLoggedInUser().subscribe((users) => {
         this.loggedInUser =
           users.find((user) => user.id === currentUserId) || null;
+        this.cdr.detectChanges();
       });
 
       // Fetch the list of logged in users
       this.userService.getLoggedInUser().subscribe((users) => {
         this.loggedInUsers = users.filter((user) => user.id === currentUserId);
+        this.cdr.detectChanges();
       });
     }
   }
@@ -51,6 +60,7 @@ export class AccountComponent implements OnInit {
       this.authService.setLoggedIn(false);
       localStorage.removeItem('isLoggedIn');
       localStorage.removeItem('currentUserId');
+      this.cdr.detectChanges();
     }
   }
 }

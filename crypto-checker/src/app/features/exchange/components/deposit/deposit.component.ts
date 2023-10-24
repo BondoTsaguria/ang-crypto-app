@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { UserData } from 'src/app/shared/interfaces/user-data.interface';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ExchangeService } from 'src/app/shared/services/exchange.service';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -8,6 +12,7 @@ import { UserService } from 'src/app/shared/services/user.service';
   selector: 'app-deposit',
   templateUrl: './deposit.component.html',
   styleUrls: ['./deposit.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DepositComponent implements OnInit {
   depositAmount!: number;
@@ -16,7 +21,8 @@ export class DepositComponent implements OnInit {
   constructor(
     private exchangeService: ExchangeService,
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -24,6 +30,7 @@ export class DepositComponent implements OnInit {
     this.userService.getLoggedInUser().subscribe((users) => {
       const user = users.find((user) => user.id === currentUserId);
       this.accountBalance = user?.balance!;
+      this.cdr.detectChanges();
     });
   }
 
@@ -38,6 +45,7 @@ export class DepositComponent implements OnInit {
           .subscribe((res) => {
             this.accountBalance = res.balance!;
             this.depositAmount = 0;
+            this.cdr.detectChanges();
           });
       }
     }

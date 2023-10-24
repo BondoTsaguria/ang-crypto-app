@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { UserService } from 'src/app/shared/services/user.service';
@@ -7,6 +11,7 @@ import { UserService } from 'src/app/shared/services/user.service';
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignUpComponent {
   formGroup: FormGroup;
@@ -14,7 +19,8 @@ export class SignUpComponent {
 
   constructor(
     private formBlock: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private cdr: ChangeDetectorRef
   ) {
     // Initialize the form group in the constructor
     this.formGroup = this.formBlock.group(
@@ -81,7 +87,7 @@ export class SignUpComponent {
 
       // Clear the form after submission
       this.formGroup.reset();
-
+      this.cdr.detectChanges();
       // Reset the formGroupSubmitted status to hide error messages
       this.formGroupSubmitted = false;
     } else {

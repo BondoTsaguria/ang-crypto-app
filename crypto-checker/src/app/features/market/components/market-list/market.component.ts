@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,6 +17,7 @@ import { CryptoDataService } from 'src/app/shared/services/crypto-data.service';
   selector: 'app-market',
   templateUrl: './market.component.html',
   styleUrls: ['./market.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MarketComponent implements OnInit {
   dataSource!: MatTableDataSource<mainCryptoData>;
@@ -22,10 +29,15 @@ export class MarketComponent implements OnInit {
     'actions',
   ];
 
-  constructor(private cryptoData: CryptoDataService, private router: Router) {}
+  constructor(
+    private cryptoData: CryptoDataService,
+    private router: Router,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.getAllData();
+    this.cdr.detectChanges();
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -36,6 +48,7 @@ export class MarketComponent implements OnInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.cdr.detectChanges();
     });
   }
 
