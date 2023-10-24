@@ -6,11 +6,18 @@ import { AppComponent } from '../App/components/app.component';
 import { TopBarComponent } from '../top-bar/components/top-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuard } from '../guards/auth.guard';
+import { LoginGuard } from '../guards/login.guard';
 
 @NgModule({
   declarations: [AppComponent, TopBarComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+  ],
+  providers: [AuthGuard, LoginGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

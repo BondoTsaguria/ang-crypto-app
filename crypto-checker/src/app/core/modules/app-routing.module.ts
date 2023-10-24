@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../guards/auth.guard';
+import { LoginGuard } from '../guards/login.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -9,6 +11,7 @@ const routes: Routes = [
       import('../../features/home/modules/home.module').then(
         (m) => m.HomeModule
       ),
+    canActivate: [LoginGuard],
   },
   {
     path: 'sign-up',
@@ -16,6 +19,7 @@ const routes: Routes = [
       import('../../features/sign-up/modules/sign-up.module').then(
         (m) => m.SignUpModule
       ),
+    canActivate: [LoginGuard],
   },
   {
     path: 'login',
@@ -23,6 +27,7 @@ const routes: Routes = [
       import('../../features/login/modules/login.module').then(
         (m) => m.LoginModule
       ),
+    canActivate: [LoginGuard],
   },
   {
     path: 'account',
@@ -30,6 +35,7 @@ const routes: Routes = [
       import('../../features/account/modules/account.module').then(
         (m) => m.AccountModule
       ),
+    canActivate: [AuthGuard],
   },
 
   {
@@ -38,6 +44,7 @@ const routes: Routes = [
       import('../../features/logout/modules/logout.module').then(
         (mod) => mod.LogoutModule
       ),
+    canActivate: [AuthGuard],
   },
   {
     path: 'market',
@@ -45,6 +52,7 @@ const routes: Routes = [
       import('../../features/market/modules/market.module').then(
         (mod) => mod.MarketModule
       ),
+    canActivate: [AuthGuard],
   },
   {
     path: 'market/:id',
@@ -52,6 +60,7 @@ const routes: Routes = [
       import('../../features/market/modules/market.module').then(
         (mod) => mod.MarketModule
       ),
+    canActivate: [AuthGuard],
   },
   {
     path: 'deposit',
@@ -59,6 +68,7 @@ const routes: Routes = [
       import('../../features/exchange/modules/deposit/deposit.module').then(
         (mod) => mod.DepositModule
       ),
+    canActivate: [AuthGuard],
   },
   {
     path: 'wallet',
@@ -66,6 +76,7 @@ const routes: Routes = [
       import('../../features/exchange/modules/wallet/wallet.module').then(
         (mod) => mod.WalletModule
       ),
+    canActivate: [AuthGuard],
   },
 ];
 
