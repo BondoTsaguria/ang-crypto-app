@@ -46,7 +46,7 @@ export class AccountComponent implements OnInit {
 
   deleteUser(user: UserData) {
     const confirmDelete = confirm(
-      `Are you sure you want to delete the user with ID ${user.email}?`
+      `Are you sure you want to delete the user with Email ${user.email}?`
     );
 
     if (confirmDelete) {

@@ -8,24 +8,6 @@
       "phoneNumber": "+995555555555",
       "agreement": true,
       "id": 1
-    },
-    {
-      "email": "bondotsaguria@gmail.com",
-      "password": "22222222",
-      "confirmPassword": "22222222",
-      "nickname": "barbi-123",
-      "phoneNumber": "+995555555500",
-      "agreement": true,
-      "id": 2
-    },
-    {
-      "email": "tekleadas@gmail.com",
-      "password": "11111111",
-      "confirmPassword": "11111111",
-      "nickname": "teko-123",
-      "phoneNumber": "+995555555555",
-      "agreement": true,
-      "id": 3
     }
   ],
   "loggedInUsers": [
@@ -78,44 +60,6 @@
           "usdAmount": 200
         }
       ]
-    },
-    {
-      "email": "bondotsaguria@gmail.com",
-      "password": "22222222",
-      "confirmPassword": "22222222",
-      "nickname": "barbi-123",
-      "phoneNumber": "+995555555500",
-      "agreement": true,
-      "id": 2,
-      "balance": 700,
-      "cryptocurrencies": [
-        {
-          "symbol": "trx",
-          "usdAmount": 500
-        },
-        {
-          "symbol": "trx",
-          "usdAmount": -200
-        }
-      ],
-      "mycurrencies": [
-        {
-          "symbol": "trx",
-          "usdAmount": 300
-        }
-      ]
-    },
-    {
-      "email": "tekleadas@gmail.com",
-      "password": "11111111",
-      "confirmPassword": "11111111",
-      "nickname": "teko-123",
-      "phoneNumber": "+995555555555",
-      "agreement": true,
-      "id": 3,
-      "balance": 0,
-      "cryptocurrencies": [],
-      "mycurrencies": []
     }
   ]
 }

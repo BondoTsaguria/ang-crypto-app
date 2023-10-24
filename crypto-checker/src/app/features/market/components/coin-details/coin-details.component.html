@@ -1,34 +1,32 @@
-<div class="coin-details-container">
+<div class="coin-details__container">
+  <div class="background-image"></div>
   <div class="coin-details__a">
-    <div class="coin-image">
+    <div class="coin-main">
       <img [src]="coinData?.image?.large" alt="Coin Image" />
-      <h1>{{ coinData?.name }} ({{ coinData?.symbol | uppercase }})</h1>
+      <div class="coin-main__text">
+        <p>{{ coinData?.name }}</p>
+        <div>({{ coinData?.symbol | uppercase }})</div>
+      </div>
     </div>
-    <div class="coin-basic-info">
-      <p>{{ coinData?.description?.en }}</p>
+    <div class="coin-secondary">
+      <h2>Community Score</h2>
+      <p>{{ coinData?.community_score }}</p>
+
+      <h2>Market Cap Rank</h2>
+      <p>{{ coinData?.market_cap_rank }}</p>
+
+      <h2>Liquidity Score</h2>
+      <p>{{ coinData?.liquidity_score }}</p>
+
+      <h2>Hashing Algorithm</h2>
+      <p>{{ coinData?.hashing_algorithm }}</p>
+
+      <h2>Public Interest Score</h2>
+      <p>{{ coinData?.public_interest_score }}</p>
     </div>
   </div>
 
   <div class="coin-details__b">
-    <div class="coin-detail">
-      <h2>Community Score</h2>
-      <p>{{ coinData?.community_score }}</p>
-    </div>
-    <div class="coin-detail">
-      <h2>Market Cap Rank</h2>
-      <p>{{ coinData?.market_cap_rank }}</p>
-    </div>
-    <div class="coin-detail">
-      <h2>Liquidity Score</h2>
-      <p>{{ coinData?.liquidity_score }}</p>
-    </div>
-    <div class="coin-detail">
-      <h2>Hashing Algorithm</h2>
-      <p>{{ coinData?.hashing_algorithm }}</p>
-    </div>
-    <div class="coin-detail">
-      <h2>Public Interest Score</h2>
-      <p>{{ coinData?.public_interest_score }}</p>
-    </div>
+    <p>{{ coinData?.description?.en }}</p>
   </div>
 </div>
