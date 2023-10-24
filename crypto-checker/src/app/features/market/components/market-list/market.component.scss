@@ -1,13 +1,36 @@
-table {
-  width: 100%;
-}
+@import "../../../../shared/styles/shared.scss";
 
-.mat-mdc-form-field {
-  font-size: 14px;
-  width: 100%;
-}
+.market-data__container {
+  .filter {
+    width: 100%;
+    font-size: 1.6rem;
+  }
+  .table {
+    width: 100%;
+    td,
+    th {
+      width: 25%;
+      .symbol-image {
+        @include flex-align;
+        gap: 0.5rem;
+      }
+    }
 
-td,
-th {
-  width: 25%;
+    .view-button {
+      background-color: $btn;
+      border-radius: 1rem;
+      padding: 0.6rem 1.2rem;
+      color: $white;
+      transition: background-color 0.3s;
+      border: none;
+
+      &:hover {
+        background-color: $btn-hover;
+      }
+    }
+  }
+
+  .mat-paginator {
+    font-size: 1.4rem;
+  }
 }
