@@ -1,18 +1,19 @@
 <div class="form-container">
-  <h2>Sign up</h2>
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <h2 class="heading">Sign up</h2>
+  <form class="sign-up" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
     <!-- Email Field -->
     <div class="form-group">
       <label for="email">Email</label>
       <input type="email" id="email" formControlName="email" />
       <div
+        class="error"
         *ngIf="
           formGroupSubmitted && formGroup.get('email')?.hasError('required')
         "
       >
         Email is required
       </div>
-      <div *ngIf="formGroup.get('email')?.hasError('email')">
+      <div class="error" *ngIf="formGroup.get('email')?.hasError('email')">
         Invalid email address
       </div>
     </div>
@@ -22,16 +23,20 @@
       <label for="password">Password</label>
       <input type="password" id="password" formControlName="password" />
       <div
+        class="error"
         *ngIf="
           formGroupSubmitted && formGroup.get('password')?.hasError('required')
         "
       >
         Password is required
       </div>
-      <div *ngIf="formGroup.get('password')?.hasError('pattern')">
+      <div class="error" *ngIf="formGroup.get('password')?.hasError('pattern')">
         Invalid password format
       </div>
-      <div *ngIf="formGroup.get('password')?.hasError('minlength')">
+      <div
+        class="error"
+        *ngIf="formGroup.get('password')?.hasError('minlength')"
+      >
         Password must be at least 8 characters long
       </div>
     </div>
@@ -45,6 +50,7 @@
         formControlName="confirmPassword"
       />
       <div
+        class="error"
         *ngIf="
           formGroupSubmitted &&
           formGroup.get('confirmPassword')?.hasError('required')
@@ -53,6 +59,7 @@
         Confirm Password is required
       </div>
       <div
+        class="error"
         *ngIf="formGroup.get('confirmPassword')?.hasError('passwordMismatch')"
       >
         Passwords do not match
@@ -64,13 +71,14 @@
       <label for="nickname">Nickname</label>
       <input type="text" id="nickname" formControlName="nickname" />
       <div
+        class="error"
         *ngIf="
           formGroupSubmitted && formGroup.get('nickname')?.hasError('required')
         "
       >
         Nickname is required
       </div>
-      <div *ngIf="formGroup.get('nickname')?.hasError('pattern')">
+      <div class="error" *ngIf="formGroup.get('nickname')?.hasError('pattern')">
         Invalid nickname format
       </div>
     </div>
@@ -80,6 +88,7 @@
       <label for="phoneNumber">Phone Number</label>
       <input type="text" id="phoneNumber" formControlName="phoneNumber" />
       <div
+        class="error"
         *ngIf="
           formGroupSubmitted &&
           formGroup.get('phoneNumber')?.hasError('required')
@@ -87,7 +96,10 @@
       >
         Phone Number is required
       </div>
-      <div *ngIf="formGroup.get('phoneNumber')?.hasError('pattern')">
+      <div
+        class="error"
+        *ngIf="formGroup.get('phoneNumber')?.hasError('pattern')"
+      >
         Invalid phone number format
       </div>
     </div>

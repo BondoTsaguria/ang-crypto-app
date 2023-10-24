@@ -8,6 +8,13 @@
   flex-direction: column;
 }
 
+@mixin flex-full() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 @mixin grid-align-justify() {
   display: grid;
   align-items: center;
