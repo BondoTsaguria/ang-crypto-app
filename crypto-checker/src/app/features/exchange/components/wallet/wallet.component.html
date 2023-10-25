@@ -1,44 +1,75 @@
 <div class="wallet-container">
-  <h2>balance</h2>
-  <div>{{ accountBalance }}</div>
-
-  <form>
-    <div class="form-group">
-      <label for="usdAmount">Enter USD Amount:</label>
-      <input
-        type="number"
-        id="usdAmount"
-        [(ngModel)]="usdAmount"
-        name="usdAmount"
-        required
-      />
+  <div class="background-image"></div>
+  <div class="available">
+    <div class="balance-data">
+      <h2>balance</h2>
+      <div class="balance-data__amount">{{ accountBalance }}</div>
     </div>
 
-    <div class="form-group">
-      <label for="cryptoType">Select Cryptocurrency:</label>
-      <select
-        id="cryptoType"
-        [(ngModel)]="selectedCrypto"
-        name="selectedCrypto"
-      >
-        <option *ngFor="let crypto of cryptocurrencies" [value]="crypto.symbol">
-          ({{ crypto.symbol }})
-        </option>
-      </select>
+    <div class="icon-container">
+      <i class="fa-solid fa-arrows-left-right fa-5x"></i>
     </div>
-  </form>
 
-  <div class="form-group">
-    <button (click)="buyCryptocurrency()">Buy</button>
+    <div class="my-coins">
+      <table class="crypto-table">
+        <tr>
+          <th>Coin</th>
+          <th>Total/USD</th>
+        </tr>
+        <tr *ngFor="let crypto of myCurrencies">
+          <td>{{ crypto.symbol }}</td>
+          <td>{{ crypto.usdAmount }}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 
-  <div class="form-group">
-    <button (click)="sellCryptocurrency()">Sell</button>
+  <div class="buy-sell__container">
+    <form class="buy-sell">
+      <div class="form-group__a">
+        <div class="form-group__wrapper__a">
+          <label for="usdAmount">Enter USD Amount:</label>
+          <input
+            type="number"
+            id="usdAmount"
+            [(ngModel)]="usdAmount"
+            name="usdAmount"
+            required
+          />
+        </div>
+
+        <button class="wallet-btn btn-buy" (click)="buyCryptocurrency()">
+          Buy
+        </button>
+      </div>
+
+      <div class="form-group__b">
+        <div class="form-group__wrapper__b">
+          <label for="cryptoType">Select Cryptocurrency:</label>
+          <select
+            id="cryptoType"
+            [(ngModel)]="selectedCrypto"
+            name="selectedCrypto"
+          >
+            <option
+              *ngFor="let crypto of cryptocurrencies"
+              [value]="crypto.symbol"
+            >
+              ({{ crypto.symbol }})
+            </option>
+          </select>
+        </div>
+
+        <button class="wallet-btn btn-sell" (click)="sellCryptocurrency()">
+          Sell
+        </button>
+      </div>
+    </form>
   </div>
 
-  <div *ngIf="userData">
+  <div class="record" *ngIf="userData">
     <h2>Buy/Sell record</h2>
-    <table>
+    <table class="crypto-table">
       <tr>
         <th>Coin</th>
         <th>USD</th>
@@ -49,16 +80,4 @@
       </tr>
     </table>
   </div>
-
-  <h2>Cryptocurrencies</h2>
-  <table>
-    <tr>
-      <th>Coin</th>
-      <th>Total/USD</th>
-    </tr>
-    <tr *ngFor="let crypto of myCurrencies">
-      <td>{{ crypto.symbol }}</td>
-      <td>{{ crypto.usdAmount }}</td>
-    </tr>
-  </table>
 </div>
