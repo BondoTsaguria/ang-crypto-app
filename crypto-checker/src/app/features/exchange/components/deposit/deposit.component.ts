@@ -16,6 +16,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class DepositComponent implements OnInit {
   depositAmount!: number;
+  withdrawAmount!: number | null;
   accountBalance!: number;
 
   constructor(
@@ -45,6 +46,22 @@ export class DepositComponent implements OnInit {
           .subscribe((res) => {
             this.accountBalance = res.balance!;
             this.depositAmount = 0;
+            this.cdr.detectChanges();
+          });
+      }
+    }
+  }
+
+  withdraw(withdrawAmount: number) {
+    if (withdrawAmount > 0 && withdrawAmount <= this.accountBalance) {
+      const currentUserId = this.authService.getCurrentUserId();
+      if (currentUserId) {
+        const newBalance = this.accountBalance - withdrawAmount;
+        this.exchangeService
+          .updateBalanceAfterWithdraw(currentUserId, newBalance)
+          .subscribe((res) => {
+            this.accountBalance = res.balance!;
+            this.withdrawAmount = null;
             this.cdr.detectChanges();
           });
       }

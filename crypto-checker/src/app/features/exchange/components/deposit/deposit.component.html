@@ -11,4 +11,11 @@
       Deposit
     </button>
   </div>
+  <div class="withdraw-page">
+    <label for="withdrawAmount">Enter Withdraw Amount</label>
+    <input type="number" id="withdrawAmount" [(ngModel)]="withdrawAmount" />
+    <button class="withdraw-button" (click)="withdraw(withdrawAmount!)">
+      Withdraw
+    </button>
+  </div>
 </div>

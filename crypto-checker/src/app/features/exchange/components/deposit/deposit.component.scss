@@ -29,25 +29,36 @@
     }
   }
 
-  .deposit-page {
+  .deposit-page,
+  .withdraw-page {
     @include flex-full;
     gap: 1rem;
     label {
       font-size: 2.6rem;
     }
-    .deposit-button {
+    .deposit-button,
+    .withdraw-button {
       color: $white;
       padding: 0.5rem 1.5rem;
-      background-color: $btn;
       border-radius: 0.5rem;
       border: none;
       cursor: pointer;
+    }
 
+    .deposit-button {
+      background-color: $btn;
       &:hover {
         background-color: $btn-hover;
       }
     }
-    #depositAmount {
+    .withdraw-button {
+      background-color: $withdraw;
+      &:hover {
+        background-color: $withdraw-hover;
+      }
+    }
+    #depositAmount,
+    #withdrawAmount {
       width: 75%;
       height: 2rem;
       border-radius: 0.5rem;

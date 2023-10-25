@@ -54,4 +54,13 @@ export class ExchangeService {
     const updatedCurrencies = { mycurrencies: inputData };
     return this.http.patch<UserData>(userUrl, updatedCurrencies);
   }
+
+  updateBalanceAfterWithdraw(
+    userId: number,
+    newBalance: number
+  ): Observable<UserData> {
+    const url = `${this.baseUrl}/${userId}`;
+    const balanceUpdate = { balance: newBalance };
+    return this.http.patch<UserData>(url, balanceUpdate);
+  }
 }
