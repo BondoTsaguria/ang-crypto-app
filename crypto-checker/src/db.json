@@ -4,7 +4,7 @@
       "email": "bonnnnn@gmail.com",
       "password": "22222222",
       "confirmPassword": "22222222",
-      "nickname": "bondiko-111",
+      "nickname": "bond-123",
       "phoneNumber": "+995555555555",
       "agreement": true,
       "id": 1
@@ -15,13 +15,51 @@
       "email": "bonnnnn@gmail.com",
       "password": "22222222",
       "confirmPassword": "22222222",
-      "nickname": "bondiko-111",
+      "nickname": "bond-123",
       "phoneNumber": "+995555555555",
       "agreement": true,
       "id": 1,
-      "balance": 6010,
-      "cryptocurrencies": [],
-      "mycurrencies": []
+      "balance": 950,
+      "cryptocurrencies": [
+        {
+          "symbol": "btc",
+          "usdAmount": 500
+        },
+        {
+          "symbol": "btc",
+          "usdAmount": -300
+        },
+        {
+          "symbol": "btc",
+          "usdAmount": -200
+        },
+        {
+          "symbol": "btc",
+          "usdAmount": 100
+        },
+        {
+          "symbol": "btc",
+          "usdAmount": 100
+        },
+        {
+          "symbol": "btc",
+          "usdAmount": -200
+        },
+        {
+          "symbol": "btc",
+          "usdAmount": 100
+        },
+        {
+          "symbol": "btc",
+          "usdAmount": -50
+        }
+      ],
+      "mycurrencies": [
+        {
+          "symbol": "btc",
+          "usdAmount": 50
+        }
+      ]
     }
   ]
 }

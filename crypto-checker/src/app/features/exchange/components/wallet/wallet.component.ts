@@ -139,9 +139,26 @@ export class WalletComponent implements OnInit {
     });
   }
 
+  eligibleToSell(): boolean {
+    const currency = this.myCurrencies.find(
+      (crypto) => crypto.symbol === this.selectedCrypto
+    );
+
+    if (currency && this.usdAmount <= currency.usdAmount) {
+      return false;
+    }
+
+    return true;
+  }
+
   // Buy / Sell methods
   buyCryptocurrency() {
-    if (this.usdAmount <= 0) return;
+    if (
+      this.usdAmount <= 0 ||
+      this.usdAmount > this.accountBalance ||
+      !this.selectedCrypto
+    )
+      return;
     this.buttonClicked = true;
     // Calculate the new balance
     const newBalance = this.accountBalance - this.usdAmount;
@@ -152,7 +169,8 @@ export class WalletComponent implements OnInit {
   }
 
   sellCryptocurrency() {
-    if (this.usdAmount <= 0) return;
+    if (this.usdAmount <= 0 || !this.selectedCrypto || this.eligibleToSell())
+      return;
     this.buttonClicked = false;
     // Calculate the new balance
     const newBalance = this.accountBalance + this.usdAmount;
