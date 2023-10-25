@@ -21,7 +21,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class WalletComponent implements OnInit {
   accountBalance!: number;
-  usdAmount!: number;
+  usdAmount!: number | null;
   selectedCrypto!: string;
   cryptocurrencies!: mainCryptoData[];
   userData!: UserData;
@@ -64,7 +64,7 @@ export class WalletComponent implements OnInit {
           // Update the local balance with the response from the server
           this.accountBalance = updatedUser.balance!;
           // Clear the USD amount input field
-          this.usdAmount = 0;
+          this.usdAmount = null;
           this.cdr.detectChanges();
         });
     }
@@ -144,7 +144,7 @@ export class WalletComponent implements OnInit {
       (crypto) => crypto.symbol === this.selectedCrypto
     );
 
-    if (currency && this.usdAmount <= currency.usdAmount) {
+    if (currency && this.usdAmount! <= currency.usdAmount) {
       return false;
     }
 
@@ -154,27 +154,33 @@ export class WalletComponent implements OnInit {
   // Buy / Sell methods
   buyCryptocurrency() {
     if (
-      this.usdAmount <= 0 ||
-      this.usdAmount > this.accountBalance ||
-      !this.selectedCrypto
+      this.usdAmount! <= 0 ||
+      this.usdAmount! > this.accountBalance ||
+      !this.selectedCrypto ||
+      !this.usdAmount
     )
       return;
     this.buttonClicked = true;
     // Calculate the new balance
-    const newBalance = this.accountBalance - this.usdAmount;
-    this.updateCryptosRecord(this.usdAmount, this.selectedCrypto);
+    const newBalance = this.accountBalance - this.usdAmount!;
+    this.updateCryptosRecord(this.usdAmount!, this.selectedCrypto);
     this.updateBalanceChange(newBalance);
     this.updateMycurrencies();
     this.cdr.detectChanges();
   }
 
   sellCryptocurrency() {
-    if (this.usdAmount <= 0 || !this.selectedCrypto || this.eligibleToSell())
+    if (
+      this.usdAmount! <= 0 ||
+      !this.selectedCrypto ||
+      this.eligibleToSell() ||
+      !this.usdAmount
+    )
       return;
     this.buttonClicked = false;
     // Calculate the new balance
-    const newBalance = this.accountBalance + this.usdAmount;
-    this.updateCryptosRecord(this.usdAmount, this.selectedCrypto);
+    const newBalance = this.accountBalance + this.usdAmount!;
+    this.updateCryptosRecord(this.usdAmount!, this.selectedCrypto);
     this.updateBalanceChange(newBalance);
     this.updateMycurrencies();
     this.cdr.detectChanges();

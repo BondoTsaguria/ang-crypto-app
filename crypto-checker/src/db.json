@@ -19,7 +19,7 @@
       "phoneNumber": "+995555555555",
       "agreement": true,
       "id": 1,
-      "balance": 950,
+      "balance": null,
       "cryptocurrencies": [
         {
           "symbol": "btc",
@@ -52,12 +52,30 @@
         {
           "symbol": "btc",
           "usdAmount": -50
+        },
+        {
+          "symbol": "bnb",
+          "usdAmount": 100
+        },
+        {
+          "symbol": "bnb",
+          "usdAmount": 100
+        },
+        {
+          "symbol": "ton"
         }
       ],
       "mycurrencies": [
         {
           "symbol": "btc",
           "usdAmount": 50
+        },
+        {
+          "symbol": "bnb",
+          "usdAmount": 200
+        },
+        {
+          "symbol": "ton"
         }
       ]
     }
