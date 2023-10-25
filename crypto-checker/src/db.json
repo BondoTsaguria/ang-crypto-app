@@ -1,10 +1,10 @@
 {
   "users": [
     {
-      "email": "caguria1@gmail.com",
-      "password": "11111111",
-      "confirmPassword": "11111111",
-      "nickname": "bondo-123",
+      "email": "bonnnnn@gmail.com",
+      "password": "22222222",
+      "confirmPassword": "22222222",
+      "nickname": "bondiko-111",
       "phoneNumber": "+995555555555",
       "agreement": true,
       "id": 1
@@ -12,66 +12,16 @@
   ],
   "loggedInUsers": [
     {
-      "email": "caguria1@gmail.com",
-      "password": "11111111",
-      "confirmPassword": "11111111",
-      "nickname": "bondo-123",
+      "email": "bonnnnn@gmail.com",
+      "password": "22222222",
+      "confirmPassword": "22222222",
+      "nickname": "bondiko-111",
       "phoneNumber": "+995555555555",
       "agreement": true,
       "id": 1,
-      "balance": 1000,
-      "cryptocurrencies": [
-        {
-          "symbol": "btc",
-          "usdAmount": 100
-        },
-        {
-          "symbol": "btc",
-          "usdAmount": -50
-        },
-        {
-          "symbol": "bnb",
-          "usdAmount": 500
-        },
-        {
-          "symbol": "bnb",
-          "usdAmount": -300
-        },
-        {
-          "symbol": "doge",
-          "usdAmount": 400
-        },
-        {
-          "symbol": "doge",
-          "usdAmount": -200
-        },
-        {
-          "symbol": "btc",
-          "usdAmount": 1000
-        },
-        {
-          "symbol": "btc",
-          "usdAmount": 1000
-        },
-        {
-          "symbol": "btc",
-          "usdAmount": 50
-        }
-      ],
-      "mycurrencies": [
-        {
-          "symbol": "btc",
-          "usdAmount": 2100
-        },
-        {
-          "symbol": "bnb",
-          "usdAmount": 200
-        },
-        {
-          "symbol": "doge",
-          "usdAmount": 200
-        }
-      ]
+      "balance": 0,
+      "cryptocurrencies": [],
+      "mycurrencies": []
     }
   ]
 }

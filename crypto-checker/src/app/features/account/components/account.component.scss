@@ -41,6 +41,32 @@
   }
 
   .logged-in__user {
+    @include flex-column;
+    align-items: center;
+    gap: 2rem;
+    .edit-data__container {
+      @include flex-column;
+      gap: 0.5rem;
+      align-items: center;
+      .edit-wrapper {
+        @include flex-column;
+        gap: 0.5rem;
+        align-items: center;
+
+        .save-btn {
+          padding: 0.5rem 1rem;
+          border-radius: 0.8rem;
+          background-color: $btn;
+          cursor: pointer;
+          border: none;
+          color: $white;
+
+          &:hover {
+            background-color: $btn-hover;
+          }
+        }
+      }
+    }
     table {
       width: 100%;
       border-collapse: collapse;

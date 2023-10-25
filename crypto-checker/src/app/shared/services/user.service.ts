@@ -48,4 +48,20 @@ export class UserService {
     const userUrl = `${this.loggedInUserUrl}/${id}`;
     return this.http.delete<UserData>(userUrl);
   }
+
+  updateUser(
+    id: number | undefined,
+    userData: Partial<UserData>
+  ): Observable<UserData> {
+    const userUrl = `${this.apiUrl}/${id}`;
+    return this.http.patch<UserData>(userUrl, userData);
+  }
+
+  updateLoggedInUser(
+    id: number | undefined,
+    userData: Partial<UserData>
+  ): Observable<UserData> {
+    const userUrl = `${this.loggedInUserUrl}/${id}`;
+    return this.http.patch<UserData>(userUrl, userData);
+  }
 }

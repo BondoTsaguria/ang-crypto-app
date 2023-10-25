@@ -35,10 +35,69 @@
             </button>
           </td>
           <td>
-            <button class="btn-edit">Edit</button>
+            <button class="btn-edit" (click)="edit(user)">Edit</button>
           </td>
         </tr>
       </tbody>
     </table>
+
+    <div *ngFor="let user of loggedInUsers" class="edit-data__container">
+      <input
+        class="edit-field"
+        *ngIf="isEditing && editingUser === user"
+        type="text"
+        placeholder="What to edit?"
+        [(ngModel)]="propertyToEdit"
+      />
+
+      <div class="edit-wrapper" *ngIf="isEditing && editingUser === user">
+        <input
+          class="edit-field-secondary"
+          *ngIf="propertyToEdit === 'email'"
+          type="text"
+          placeholder="New Email"
+          [(ngModel)]="newProperty"
+        />
+        <input
+          class="edit-field-secondary"
+          *ngIf="propertyToEdit === 'password'"
+          type="password"
+          placeholder="New Password"
+          [(ngModel)]="newProperty"
+        />
+        <input
+          class="edit-field-secondary"
+          *ngIf="propertyToEdit === 'password'"
+          type="password"
+          placeholder="New Confirm Password"
+          [(ngModel)]="newConfirmPassword"
+          [ngStyle]="{ 'border-color': passwordsMatch ? '' : 'red' }"
+        />
+        <input
+          class="edit-field-secondary"
+          *ngIf="propertyToEdit === 'nickname'"
+          type="text"
+          placeholder="New Nickname"
+          [(ngModel)]="newProperty"
+        />
+        <input
+          class="edit-field-secondary"
+          *ngIf="propertyToEdit === 'phonenumber'"
+          type="text"
+          placeholder="New Phone Number"
+          [(ngModel)]="newProperty"
+        />
+        <input
+          class="edit-field-secondary"
+          *ngIf="propertyToEdit === 'website'"
+          type="text"
+          placeholder="New Website"
+          [(ngModel)]="newProperty"
+        />
+        <button class="save-btn" (click)="saveEditProperty(newProperty)">
+          Save
+        </button>
+      </div>
+    </div>
   </div>
 </div>
