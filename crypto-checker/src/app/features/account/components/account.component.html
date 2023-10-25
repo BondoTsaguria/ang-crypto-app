@@ -1,8 +1,12 @@
 <div class="account-container">
   <div class="background-image"></div>
-  <div class="account-details" (click)="goToDeposit()">
+  <div
+    *ngFor="let user of loggedInUsers"
+    class="account-details"
+    (click)="goToDeposit()"
+  >
     <h2 class="heading">User</h2>
-    <p>{{ loggedInUser?.nickname }}</p>
+    <p>{{ user.nickname }}</p>
   </div>
 
   <div class="logged-in__user">
@@ -14,7 +18,8 @@
           <th>Password</th>
           <th>Nickname</th>
           <th>Phone Number</th>
-          <th>Action</th>
+          <th>Delete</th>
+          <th>Edit</th>
         </tr>
       </thead>
       <tbody>
@@ -28,6 +33,9 @@
             <button class="btn-delete" (click)="deleteUser(user)">
               Delete
             </button>
+          </td>
+          <td>
+            <button class="btn-edit">Edit</button>
           </td>
         </tr>
       </tbody>

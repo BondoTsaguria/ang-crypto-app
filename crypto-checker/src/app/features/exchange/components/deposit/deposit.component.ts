@@ -27,7 +27,7 @@ export class DepositComponent implements OnInit {
 
   ngOnInit(): void {
     const currentUserId = this.authService.getCurrentUserId();
-    this.userService.getLoggedInUser().subscribe((users) => {
+    this.userService.getLoggedInUsers().subscribe((users) => {
       const user = users.find((user) => user.id === currentUserId);
       this.accountBalance = user?.balance!;
       this.cdr.detectChanges();

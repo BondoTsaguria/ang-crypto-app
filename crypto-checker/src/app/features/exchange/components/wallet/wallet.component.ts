@@ -39,7 +39,7 @@ export class WalletComponent implements OnInit {
   ngOnInit(): void {
     const currentUserId = this.authService.getCurrentUserId();
 
-    this.userService.getLoggedInUser().subscribe((users) => {
+    this.userService.getLoggedInUsers().subscribe((users) => {
       const user = users.find((user) => user.id === currentUserId);
       this.accountBalance = user?.balance!;
       this.userData = user!;
@@ -100,7 +100,7 @@ export class WalletComponent implements OnInit {
         )
         .subscribe(() => {
           // Fetch the user's cryptocurrencies again after the update
-          this.userService.getLoggedInUser().subscribe((users) => {
+          this.userService.getLoggedInUsers().subscribe((users) => {
             const user = users.find((user) => user.id === currentUserId);
             this.userData = user!;
             this.cdr.detectChanges();
@@ -114,7 +114,7 @@ export class WalletComponent implements OnInit {
   updateMycurrencies() {
     const currentUserId = this.authService.getCurrentUserId();
 
-    this.userService.getLoggedInUser().subscribe((users) => {
+    this.userService.getLoggedInUsers().subscribe((users) => {
       const user = users.find((user) => user.id === currentUserId);
       const inputData = user?.cryptocurrencies;
       const symbolMap: SymbolMap = {};

@@ -16,7 +16,6 @@ import { UserService } from 'src/app/shared/services/user.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountComponent implements OnInit {
-  loggedInUser: UserData | null = null;
   loggedInUsers: UserData[] = [];
 
   constructor(
@@ -27,17 +26,11 @@ export class AccountComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Fetch the logged-in user data using the ID from AuthService
+    // Fetch the logged-in user data
     const currentUserId = this.authService.getCurrentUserId();
     if (currentUserId !== null) {
-      this.userService.getLoggedInUser().subscribe((users) => {
-        this.loggedInUser =
-          users.find((user) => user.id === currentUserId) || null;
-        this.cdr.detectChanges();
-      });
-
-      // Fetch the list of logged in users
-      this.userService.getLoggedInUser().subscribe((users) => {
+      // Fetch the logged-in user data
+      this.userService.getLoggedInUsers().subscribe((users) => {
         this.loggedInUsers = users.filter((user) => user.id === currentUserId);
         this.cdr.detectChanges();
       });

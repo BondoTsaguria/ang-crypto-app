@@ -47,7 +47,7 @@ export class LoginComponent {
           if (user) {
             this.cdr.detectChanges();
             // Check if the user already exists in loggedInUsers
-            this.userService.getLoggedInUser().subscribe(
+            this.userService.getLoggedInUsers().subscribe(
               (loggedInUsers) => {
                 const loggedInUser = loggedInUsers.find(
                   (u) => u.email === email && u.password === password

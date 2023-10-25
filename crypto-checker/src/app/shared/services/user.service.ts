@@ -34,7 +34,7 @@ export class UserService {
   }
 
   // Method to get the logged-in user
-  getLoggedInUser(): Observable<UserData[]> {
+  getLoggedInUsers(): Observable<UserData[]> {
     return this.http.get<UserData[]>(this.loggedInUserUrl);
   }
 

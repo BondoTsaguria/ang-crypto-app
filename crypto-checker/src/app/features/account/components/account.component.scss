@@ -72,6 +72,19 @@
           background-color: $delete-hover;
         }
       }
+
+      .btn-edit {
+        background-color: $btn;
+        color: $white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $btn-hover;
+        }
+      }
     }
     table:hover {
       transition: box-shadow 0.3s ease;
