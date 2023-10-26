@@ -55,15 +55,12 @@ export class WalletComponent implements OnInit {
 
   //Update the balance
   updateBalanceChange(newBalance: number) {
-    // Update the server balance
     const currentUserId = this.authService.getCurrentUserId();
     if (currentUserId) {
       this.exchangeService
         .updateUserBalance(currentUserId, newBalance)
         .subscribe((updatedUser) => {
-          // Update the local balance with the response from the server
           this.accountBalance = updatedUser.balance!;
-          // Clear the USD amount input field
           this.usdAmount = null;
           this.cdr.detectChanges();
         });
@@ -89,7 +86,6 @@ export class WalletComponent implements OnInit {
         };
       }
 
-      // Push the updated cryptocurrency to the user's ownedCryptoes array
       this.userData.cryptocurrencies.push(updatedList!);
 
       // Send the updated list to the server
