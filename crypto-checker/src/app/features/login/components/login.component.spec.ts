@@ -21,4 +21,20 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should initialize the form group', () => {
+    expect(component.formGroup).toBeTruthy();
+  });
+
+  it('should mark email field as invalid if empty', () => {
+    const emailControl = component.formGroup.get('email');
+    emailControl?.setValue('');
+    expect(emailControl?.hasError('required')).toBeTruthy();
+  });
+
+  it('should mark password field as invalid if too short', () => {
+    const passwordControl = component.formGroup.get('password');
+    passwordControl?.setValue('short');
+    expect(passwordControl?.hasError('minlength')).toBeTruthy();
+  });
 });
