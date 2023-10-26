@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "email": "bonnnnn@gmail.com",
+      "email": "bondo123@gmail.com",
       "password": "22222222",
       "confirmPassword": "22222222",
       "nickname": "bond-123",
@@ -12,70 +12,28 @@
   ],
   "loggedInUsers": [
     {
-      "email": "bonnnnn@gmail.com",
+      "email": "bondo123@gmail.com",
       "password": "22222222",
       "confirmPassword": "22222222",
       "nickname": "bond-123",
       "phoneNumber": "+995555555555",
       "agreement": true,
       "id": 1,
-      "balance": null,
+      "balance": 220,
       "cryptocurrencies": [
         {
           "symbol": "btc",
-          "usdAmount": 500
-        },
-        {
-          "symbol": "btc",
-          "usdAmount": -300
-        },
-        {
-          "symbol": "btc",
-          "usdAmount": -200
-        },
-        {
-          "symbol": "btc",
           "usdAmount": 100
         },
         {
           "symbol": "btc",
-          "usdAmount": 100
-        },
-        {
-          "symbol": "btc",
-          "usdAmount": -200
-        },
-        {
-          "symbol": "btc",
-          "usdAmount": 100
-        },
-        {
-          "symbol": "btc",
-          "usdAmount": -50
-        },
-        {
-          "symbol": "bnb",
-          "usdAmount": 100
-        },
-        {
-          "symbol": "bnb",
-          "usdAmount": 100
-        },
-        {
-          "symbol": "ton"
+          "usdAmount": -20
         }
       ],
       "mycurrencies": [
         {
           "symbol": "btc",
-          "usdAmount": 50
-        },
-        {
-          "symbol": "bnb",
-          "usdAmount": 200
-        },
-        {
-          "symbol": "ton"
+          "usdAmount": 80
         }
       ]
     }
