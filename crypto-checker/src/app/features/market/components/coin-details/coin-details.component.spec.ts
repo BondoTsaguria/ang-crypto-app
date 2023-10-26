@@ -21,4 +21,17 @@ describe('CoinDetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should truncate description to a specified length', () => {
+    const longDescription =
+      'This is a long description. It has multiple sentences. It should be truncated.';
+    const truncatedDescription = component.truncateDescription(
+      longDescription,
+      2
+    );
+
+    expect(truncatedDescription).toEqual(
+      'This is a long description. It has multiple sentences'
+    );
+  });
 });
