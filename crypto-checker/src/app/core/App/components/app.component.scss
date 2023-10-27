@@ -1,9 +1,32 @@
+@import "../../../shared/styles/shared.scss";
+
 .main-container {
-  height: 100vh;
+  height: 100%;
   .top-bar--container {
-    height: 8vh;
+    height: 8%;
   }
   .section-container {
-    height: 92vh;
+    height: 80%;
+  }
+
+  .footer-container {
+    height: 12%;
+    @include flex-full;
+    gap: 1.2rem;
+    p {
+      color: $white;
+      font-size: 1.2rem;
+    }
+    .socials {
+      @include flex-align;
+      gap: 0.5rem;
+      a {
+        height: 100%;
+        i {
+          font-size: 1.6rem;
+          color: $white;
+        }
+      }
+    }
   }
 }

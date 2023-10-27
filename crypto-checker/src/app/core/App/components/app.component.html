@@ -5,4 +5,31 @@
   <section class="section-container">
     <router-outlet></router-outlet>
   </section>
+  <footer
+    *ngIf="!authService.isLoggedIn() && isHomePage()"
+    class="footer-container"
+  >
+    <p>
+      Cryptocurrency data is provided for informational purposes only.Consult a
+      financial advisor before investing.
+    </p>
+    <div class="socials">
+      <a href="https://www.facebook.com/coingecko/" target="_blank"
+        ><i class="fa-brands fa-facebook fa-sm"></i
+      ></a>
+      <a href="https://www.instagram.com/coingecko/?hl=en" target="_blank"
+        ><i class="fa-brands fa-instagram fa-sm"></i>></a
+      >
+      <a
+        href="https://twitter.com/coingecko?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+        target="_blank"
+        ><i class="fa-brands fa-twitter fa-sm"></i
+      ></a>
+      <a
+        href="https://www.youtube.com/channel/UC-OTgwOAI7KmP0eDAtqN3Ow"
+        target="_blank"
+        ><i class="fa-brands fa-youtube fa-sm"></i
+      ></a>
+    </div>
+  </footer>
 </div>
