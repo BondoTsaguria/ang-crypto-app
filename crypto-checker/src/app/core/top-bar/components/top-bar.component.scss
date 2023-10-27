@@ -4,6 +4,7 @@
   background-color: $secondary;
   @include flex-align;
   justify-content: space-between;
+  overflow: hidden;
 
   &__actions {
     height: 100%;

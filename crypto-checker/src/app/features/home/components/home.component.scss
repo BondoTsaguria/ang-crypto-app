@@ -15,6 +15,7 @@
   @include flex-column;
   gap: 2rem;
   height: 100%;
+  overflow: hidden;
 
   .header {
     height: 35%;
