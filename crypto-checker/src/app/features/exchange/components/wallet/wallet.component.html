@@ -73,10 +73,12 @@
       <tr>
         <th>Coin</th>
         <th>USD</th>
+        <th>Date</th>
       </tr>
       <tr *ngFor="let crypto of userData.cryptocurrencies">
         <td>{{ crypto.symbol }}</td>
         <td>{{ crypto.usdAmount }}</td>
+        <td>{{ crypto.date | date : "medium" }}</td>
       </tr>
     </table>
   </div>

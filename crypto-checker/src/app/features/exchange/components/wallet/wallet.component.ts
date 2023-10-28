@@ -70,12 +70,14 @@ export class WalletComponent implements OnInit {
   //Update the bought/sold record
   updateCryptosRecord(usdAmount: number, selectedCrypto: string) {
     const currentUserId = this.authService.getCurrentUserId();
+    const currentDate = new Date();
     if (currentUserId) {
       let updatedList;
       if (this.buttonClicked === true) {
         updatedList = {
           symbol: selectedCrypto,
           usdAmount: usdAmount,
+          date: currentDate,
         };
       }
 
@@ -83,6 +85,7 @@ export class WalletComponent implements OnInit {
         updatedList = {
           symbol: selectedCrypto,
           usdAmount: -usdAmount,
+          date: currentDate,
         };
       }
 
