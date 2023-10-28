@@ -1,124 +1,376 @@
 @import "../../../../shared/styles/shared.scss";
 
-.wallet-container {
-  @include flex-full;
-  padding-top: 3rem;
-  gap: 5rem;
-  color: $white;
+@media #{$desktop} {
+  .wallet-container {
+    @include flex-full;
+    padding-top: 3rem;
+    gap: 5rem;
+    color: $white;
 
-  .background-image {
-    content: "";
-    background-image: url("../../../../../assets/imgs/account-background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    filter: blur(0.2rem);
-    z-index: -1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+    .background-image {
+      content: "";
+      background-image: url("../../../../../assets/imgs/account-background.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: blur(0.2rem);
+      z-index: -1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-  .available {
-    @include flex-align;
-    gap: 2rem;
+    .available {
+      @include flex-align;
+      gap: 2rem;
 
-    .balance-data {
-      @include flex-full;
-      h2 {
-        font-size: 3rem;
+      .balance-data {
+        @include flex-full;
+        h2 {
+          font-size: 3rem;
+        }
+        &__amount {
+          font-size: 2.5rem;
+        }
       }
-      &__amount {
-        font-size: 2.5rem;
+
+      .my-coins {
+        th,
+        td {
+          font-size: 1.5rem;
+        }
       }
     }
 
-    .my-coins {
+    .buy-sell__container {
+      .buy-sell {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        .form-group__a,
+        .form-group__b {
+          @include flex-full;
+          gap: 1.8rem;
+        }
+
+        .form-group__wrapper__a,
+        .form-group__wrapper__b {
+          @include flex-column;
+          align-items: center;
+          gap: 0.5rem;
+        }
+        .form-group__a {
+          #usdAmount,
+          #cryptoType {
+            width: 10rem;
+            height: 1.733rem;
+          }
+        }
+
+        label {
+          font-size: 1.5rem;
+        }
+
+        .wallet-btn {
+          font-size: 1.2rem;
+          padding: 0.5rem 2rem;
+          color: $white;
+          border-radius: 1rem;
+          border: none;
+        }
+
+        .btn-buy {
+          background-color: $btn;
+          cursor: pointer;
+          &:hover {
+            background-color: $btn-hover;
+          }
+        }
+
+        .btn-sell {
+          background-color: $delete;
+          cursor: pointer;
+          &:hover {
+            background-color: $delete-hover;
+          }
+        }
+      }
+    }
+
+    .record {
+      @include flex-full;
+      gap: 0.5rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+    }
+    .crypto-table {
+      width: 100%;
+      border-collapse: collapse;
+
       th,
       td {
-        font-size: 1.5rem;
-      }
-    }
-  }
-
-  .buy-sell__container {
-    .buy-sell {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      .form-group__a,
-      .form-group__b {
-        @include flex-full;
-        gap: 1.8rem;
-      }
-
-      .form-group__wrapper__a,
-      .form-group__wrapper__b {
-        @include flex-column;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      .form-group__a {
-        #usdAmount,
-        #cryptoType {
-          width: 10rem;
-          height: 1.733rem;
-        }
-      }
-
-      label {
-        font-size: 1.5rem;
-      }
-
-      .wallet-btn {
+        border: 0.1rem solid $border;
+        padding: 0.8rem;
+        text-align: center;
         font-size: 1.2rem;
-        padding: 0.5rem 2rem;
+      }
+
+      th {
+        background-color: $main;
         color: $white;
-        border-radius: 1rem;
-        border: none;
-      }
-
-      .btn-buy {
-        background-color: $btn;
-        cursor: pointer;
-        &:hover {
-          background-color: $btn-hover;
-        }
-      }
-
-      .btn-sell {
-        background-color: $delete;
-        cursor: pointer;
-        &:hover {
-          background-color: $delete-hover;
-        }
       }
     }
   }
+}
 
-  .record {
+@media #{$tablet} {
+  .wallet-container {
     @include flex-full;
-    gap: 0.5rem;
-  }
-  h2 {
-    font-size: 1.8rem;
-  }
-  .crypto-table {
-    width: 100%;
-    border-collapse: collapse;
+    padding-top: 3rem;
+    gap: 4.8rem;
+    color: $white;
 
-    th,
-    td {
-      border: 0.1rem solid $border;
-      padding: 0.8rem;
-      text-align: center;
+    .background-image {
+      content: "";
+      background-image: url("../../../../../assets/imgs/account-background.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: blur(0.2rem);
+      z-index: -1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .available {
+      @include flex-align;
+      gap: 1.8rem;
+
+      .balance-data {
+        @include flex-full;
+        h2 {
+          font-size: 2.7rem;
+        }
+        &__amount {
+          font-size: 2.2rem;
+        }
+      }
+
+      .my-coins {
+        th,
+        td {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .buy-sell__container {
+      .buy-sell {
+        display: flex;
+        align-items: center;
+        gap: 1.8rem;
+        .form-group__a,
+        .form-group__b {
+          @include flex-full;
+          gap: 1.5rem;
+        }
+
+        .form-group__wrapper__a,
+        .form-group__wrapper__b {
+          @include flex-column;
+          align-items: center;
+          gap: 0.4rem;
+        }
+        .form-group__a {
+          #usdAmount,
+          #cryptoType {
+            width: 8rem;
+            height: 1.733rem;
+          }
+        }
+
+        label {
+          font-size: 1.2rem;
+        }
+
+        .wallet-btn {
+          font-size: 1rem;
+          padding: 0.3rem 1.5rem;
+          color: $white;
+          border-radius: 1rem;
+          border: none;
+        }
+
+        .btn-buy {
+          background-color: $btn;
+          cursor: pointer;
+          &:hover {
+            background-color: $btn-hover;
+          }
+        }
+
+        .btn-sell {
+          background-color: $delete;
+          cursor: pointer;
+          &:hover {
+            background-color: $delete-hover;
+          }
+        }
+      }
+    }
+
+    .record {
+      @include flex-full;
+      gap: 0.4rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    .crypto-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th,
+      td {
+        border: 0.1rem solid $border;
+        padding: 0.6rem;
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      th {
+        background-color: $main;
+        color: $white;
+      }
+    }
+  }
+}
+
+@media #{$mobile} {
+  .wallet-container {
+    @include flex-full;
+    padding-top: 3rem;
+    gap: 4.2rem;
+    color: $white;
+
+    .background-image {
+      content: "";
+      background-image: url("../../../../../assets/imgs/account-background.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: blur(0.2rem);
+      z-index: -1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .available {
+      @include flex-align;
+      gap: 1.5rem;
+
+      .balance-data {
+        @include flex-full;
+        h2 {
+          font-size: 2.2rem;
+        }
+        &__amount {
+          font-size: 1.8rem;
+        }
+      }
+
+      .my-coins {
+        th,
+        td {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .buy-sell__container {
+      .buy-sell {
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        .form-group__a,
+        .form-group__b {
+          @include flex-full;
+          gap: 1rem;
+        }
+
+        .form-group__wrapper__a,
+        .form-group__wrapper__b {
+          @include flex-column;
+          align-items: center;
+          gap: 0.3rem;
+        }
+        .form-group__a {
+          #usdAmount,
+          #cryptoType {
+            width: 5rem;
+            height: 1.733rem;
+          }
+        }
+
+        label {
+          font-size: 1rem;
+        }
+
+        .wallet-btn {
+          font-size: 0.7rem;
+          padding: 0.2rem 1rem;
+          color: $white;
+          border-radius: 1rem;
+          border: none;
+        }
+
+        .btn-buy {
+          background-color: $btn;
+          cursor: pointer;
+          &:hover {
+            background-color: $btn-hover;
+          }
+        }
+
+        .btn-sell {
+          background-color: $delete;
+          cursor: pointer;
+          &:hover {
+            background-color: $delete-hover;
+          }
+        }
+      }
+    }
+
+    .record {
+      @include flex-full;
+      gap: 0.3rem;
+    }
+    h2 {
       font-size: 1.2rem;
     }
+    .crypto-table {
+      width: 100%;
+      border-collapse: collapse;
 
-    th {
-      background-color: $main;
-      color: $white;
+      th,
+      td {
+        border: 0.1rem solid $border;
+        padding: 0.4rem;
+        text-align: center;
+        font-size: 0.8rem;
+      }
+
+      th {
+        background-color: $main;
+        color: $white;
+      }
     }
   }
 }
