@@ -1,57 +1,178 @@
 @import "../../../shared/styles/shared.scss";
-.login-form {
-  height: 100%;
-  @include flex-column;
-  align-items: center;
-  max-width: 40rem;
-  margin: 0 auto;
-  padding: 2rem;
 
-  .heading {
-    font-size: 2.4rem;
-  }
-
-  .login {
+@media #{$desktop} {
+  .login-form {
+    height: 100%;
     @include flex-column;
-    .form-group {
-      margin-bottom: 3rem;
-      label {
-        font-size: 1.6rem;
+    align-items: center;
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 2rem;
+
+    .heading {
+      font-size: 2.4rem;
+    }
+
+    .login {
+      @include flex-column;
+      .form-group {
+        margin-bottom: 3rem;
+        label {
+          font-size: 1.6rem;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="checkbox"] {
+          width: 100%;
+          padding: 1rem;
+          border: 0.1rem solid $border;
+          border-radius: 0.5rem;
+          font-size: 1.4rem;
+        }
+
+        input[type="checkbox"] {
+          width: auto;
+        }
+
+        .error {
+          font-size: 1.2rem;
+          color: $error;
+        }
       }
-      input[type="text"],
-      input[type="email"],
-      input[type="password"],
-      input[type="checkbox"] {
+
+      .submit-button {
+        height: 100%;
         width: 100%;
-        padding: 1rem;
-        border: 0.1rem solid $border;
-        border-radius: 0.5rem;
-        font-size: 1.4rem;
+        color: $white;
+        font-size: 1.3rem;
+        padding: 1rem 0;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        background-color: $btn;
+        border: none;
       }
-
-      input[type="checkbox"] {
-        width: auto;
-      }
-
-      .error {
-        font-size: 1.2rem;
-        color: $error;
+      .submit-button:hover {
+        background-color: $btn-hover;
       }
     }
+  }
+}
 
-    .submit-button {
-      height: 100%;
-      width: 100%;
-      color: $white;
-      font-size: 1.3rem;
-      padding: 1rem 0;
-      border-radius: 0.8rem;
-      cursor: pointer;
-      background-color: $btn;
-      border: none;
+@media #{$tablet} {
+  .login-form {
+    height: 100%;
+    @include flex-column;
+    align-items: center;
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 6rem;
+
+    .heading {
+      font-size: 2.3rem;
     }
-    .submit-button:hover {
-      background-color: $btn-hover;
+
+    .login {
+      @include flex-column;
+      .form-group {
+        margin-bottom: 3rem;
+        label {
+          font-size: 1.5rem;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="checkbox"] {
+          width: 100%;
+          padding: 1rem;
+          border: 0.1rem solid $border;
+          border-radius: 0.5rem;
+          font-size: 1.35rem;
+        }
+
+        input[type="checkbox"] {
+          width: auto;
+        }
+
+        .error {
+          font-size: 1.1rem;
+          color: $error;
+        }
+      }
+
+      .submit-button {
+        height: 100%;
+        width: 100%;
+        color: $white;
+        font-size: 1.1rem;
+        padding: 1rem 0;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        background-color: $btn;
+        border: none;
+      }
+      .submit-button:hover {
+        background-color: $btn-hover;
+      }
+    }
+  }
+}
+
+@media #{$mobile} {
+  .login-form {
+    height: 100%;
+    @include flex-column;
+    align-items: center;
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 6rem;
+
+    .heading {
+      font-size: 2.1rem;
+    }
+
+    .login {
+      @include flex-column;
+      .form-group {
+        margin-bottom: 3rem;
+        label {
+          font-size: 1.3rem;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="checkbox"] {
+          width: 100%;
+          padding: 1rem;
+          border: 0.1rem solid $border;
+          border-radius: 0.5rem;
+          font-size: 1.2rem;
+        }
+
+        input[type="checkbox"] {
+          width: auto;
+        }
+
+        .error {
+          font-size: 1rem;
+          color: $error;
+        }
+      }
+
+      .submit-button {
+        height: 100%;
+        width: 100%;
+        color: $white;
+        font-size: 1rem;
+        padding: 1rem 0;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        background-color: $btn;
+        border: none;
+      }
+      .submit-button:hover {
+        background-color: $btn-hover;
+      }
     }
   }
 }
