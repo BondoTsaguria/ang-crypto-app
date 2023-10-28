@@ -36,8 +36,6 @@
       *ngIf="authService.isLoggedIn()"
       >Wallet</a
     >
-  </div>
-  <div class="top-bar__actions" [ngClass]="{ open: isMenuOpen }">
     <a
       class="home"
       [routerLink]="['/home']"
@@ -66,7 +64,7 @@
       >Logout</a
     >
   </div>
-  <label for="check" class="check-btn">
+  <label class="check-btn">
     <i class="fa-solid fa-bars fa-lg" (click)="toggleMenu()"></i>
   </label>
 </div>
