@@ -1,75 +1,236 @@
 @import "../../../shared/styles/shared.scss";
-.background-image {
-  width: 100%;
-  height: 100%;
-  background-image: url(../../../../assets/imgs/back-img.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  filter: blur(0.15rem);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-.home {
-  @include flex-column;
-  gap: 2rem;
-  height: 100%;
-  overflow: hidden;
 
-  .header {
-    height: 35%;
-    color: $white;
-    margin-top: 3rem;
-    text-align: center;
-    .main-heading {
-      margin-bottom: 1.5rem;
-      font-size: 4.8rem;
-      line-height: 1.2;
-      letter-spacing: 0.08em;
-      color: transparent;
-      -webkit-text-stroke: 0.07rem $white;
-    }
-    .secondary-heading {
-      text-transform: capitalize;
-      font-size: 2.4rem;
-      font-weight: 500;
-      line-height: 1.57;
-      letter-spacing: 0.08em;
-    }
+@media #{$desktop} {
+  .background-image {
+    width: 100%;
+    height: 100%;
+    background-image: url(../../../../assets/imgs/back-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(0.15rem);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
   }
+  .home {
+    @include flex-column;
+    gap: 2rem;
+    height: 100%;
+    overflow: hidden;
 
-  .sub-header {
-    height: 65%;
-    marquee {
-      height: 100%;
-      ng-container {
-        height: 100%;
+    .header {
+      height: 35%;
+      color: $white;
+      margin-top: 3rem;
+      text-align: center;
+      .main-heading {
+        margin-bottom: 1.5rem;
+        font-size: 4.8rem;
+        line-height: 1.2;
+        letter-spacing: 0.08em;
+        color: transparent;
+        -webkit-text-stroke: 0.07rem $white;
+      }
+      .secondary-heading {
+        text-transform: capitalize;
+        font-size: 2.4rem;
+        font-weight: 500;
+        line-height: 1.57;
+        letter-spacing: 0.08em;
       }
     }
-    .crypto-grid {
-      height: 100%;
-      @include grid-align-justify;
-      grid-template-rows: repeat(1, 1fr);
-      grid-template-columns: repeat(9, 1fr);
-      column-gap: 3rem;
-      .crypto-item {
-        color: $white;
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        text-align: center;
-        img {
-          max-width: 7rem;
+
+    .sub-header {
+      height: 65%;
+      marquee {
+        height: 100%;
+        ng-container {
+          height: 100%;
         }
-        .crypto-symbol {
-          font-size: 1.5rem;
-          margin-top: 1rem;
-          font-weight: bold;
+      }
+      .crypto-grid {
+        height: 100%;
+        @include grid-align-justify;
+        grid-template-rows: repeat(1, 1fr);
+        grid-template-columns: repeat(9, 1fr);
+        column-gap: 3rem;
+        .crypto-item {
+          color: $white;
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          text-align: center;
+          img {
+            max-width: 7rem;
+          }
+          .crypto-symbol {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            font-weight: bold;
+          }
+          .crypto-price {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+          }
         }
-        .crypto-price {
-          font-size: 1.5rem;
-          margin-top: 1rem;
+      }
+    }
+  }
+}
+
+@media #{$tablet} {
+  .background-image {
+    width: 100%;
+    height: 100%;
+    background-image: url(../../../../assets/imgs/back-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(0.15rem);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .home {
+    @include flex-column;
+    gap: 1.8rem;
+    height: 100%;
+    overflow: hidden;
+
+    .header {
+      height: 35%;
+      color: $white;
+      margin-top: 3rem;
+      text-align: center;
+      .main-heading {
+        margin-bottom: 1.3rem;
+        font-size: 4.5rem;
+        line-height: 1.1;
+        letter-spacing: 0.08em;
+        color: transparent;
+        -webkit-text-stroke: 0.07rem $white;
+      }
+      .secondary-heading {
+        text-transform: capitalize;
+        font-size: 2.2rem;
+        font-weight: 500;
+        line-height: 1.4;
+        letter-spacing: 0.08em;
+      }
+    }
+
+    .sub-header {
+      height: 65%;
+      marquee {
+        height: 100%;
+        ng-container {
+          height: 100%;
+        }
+      }
+      .crypto-grid {
+        height: 100%;
+        @include grid-align-justify;
+        grid-template-rows: repeat(1, 1fr);
+        grid-template-columns: repeat(9, 1fr);
+        column-gap: 2.8rem;
+        .crypto-item {
+          color: $white;
+          display: flex;
+          gap: 0.8rem;
+          justify-content: center;
+          text-align: center;
+          img {
+            max-width: 6rem;
+          }
+          .crypto-symbol {
+            font-size: 1.4rem;
+            margin-top: 1rem;
+            font-weight: bold;
+          }
+          .crypto-price {
+            font-size: 1.45rem;
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$mobile} {
+  .background-image {
+    width: 100%;
+    height: 100%;
+    background-image: url(../../../../assets/imgs/back-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(0.15rem);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .home {
+    @include flex-column;
+    gap: 1.5rem;
+    height: 100%;
+    overflow: hidden;
+
+    .header {
+      height: 35%;
+      color: $white;
+      margin-top: 3rem;
+      text-align: center;
+      .main-heading {
+        margin-bottom: 1.3rem;
+        font-size: 3rem;
+        line-height: 0.9;
+        letter-spacing: 0.07em;
+        color: transparent;
+        -webkit-text-stroke: 0.07rem $white;
+      }
+      .secondary-heading {
+        text-transform: capitalize;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: 0.08em;
+      }
+    }
+
+    .sub-header {
+      height: 65%;
+      marquee {
+        height: 100%;
+        ng-container {
+          height: 100%;
+        }
+      }
+      .crypto-grid {
+        height: 100%;
+        @include grid-align-justify;
+        grid-template-rows: repeat(1, 1fr);
+        grid-template-columns: repeat(9, 1fr);
+        column-gap: 2.4rem;
+        .crypto-item {
+          color: $white;
+          display: flex;
+          gap: 0.6rem;
+          justify-content: center;
+          text-align: center;
+          img {
+            max-width: 6rem;
+          }
+          .crypto-symbol {
+            font-size: 1.3rem;
+            margin-top: 1rem;
+            font-weight: bold;
+          }
+          .crypto-price {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+          }
         }
       }
     }

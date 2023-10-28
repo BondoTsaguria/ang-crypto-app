@@ -52,7 +52,7 @@
     &__actions {
       @include flex-full;
       gap: 0.5rem;
-      height: 20vh;
+      height: 30vh;
       width: 18vw;
       padding: 0;
       position: fixed;
@@ -86,6 +86,58 @@
     .check-btn {
       display: block;
       font-size: 2.5rem;
+      color: $white;
+      cursor: pointer;
+      margin-left: 1.5rem;
+    }
+  }
+}
+
+@media #{$mobile} {
+  .top-bar {
+    height: 100%;
+    background-color: $secondary;
+    @include flex-align;
+    justify-content: space-between;
+    overflow: hidden;
+
+    &__actions {
+      @include flex-full;
+      gap: 0.5rem;
+      height: 30vh;
+      width: 18vw;
+      padding: 0;
+      position: fixed;
+      top: 8.64rem;
+      left: -100%;
+      transition: all 0.5s;
+      background-color: $secondary;
+
+      &.open {
+        left: 0;
+      }
+
+      .active {
+        color: $main;
+      }
+
+      a {
+        color: $white;
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      a:hover {
+        color: $main;
+      }
+      .crypto-img {
+        display: none;
+      }
+    }
+
+    .check-btn {
+      display: block;
+      font-size: 2rem;
       color: $white;
       cursor: pointer;
       margin-left: 1.5rem;
