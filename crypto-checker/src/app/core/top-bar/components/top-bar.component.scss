@@ -1,32 +1,94 @@
 @import "../../../shared/styles/shared.scss";
-.top-bar {
-  height: 100%;
-  background-color: $secondary;
-  @include flex-align;
-  justify-content: space-between;
-  overflow: hidden;
 
-  &__actions {
+@media #{$desktop} {
+  .top-bar {
     height: 100%;
-    padding: 2rem;
-    gap: 1.5rem;
+    background-color: $secondary;
     @include flex-align;
+    justify-content: space-between;
+    overflow: hidden;
 
-    .active {
-      color: $main;
+    &__actions {
+      height: 100%;
+      padding: 2rem;
+      gap: 1.5rem;
+      @include flex-align;
+
+      .active {
+        color: $main;
+      }
+
+      a {
+        color: $white;
+        font-size: 1.8rem;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      a:hover {
+        color: $main;
+      }
+      .crypto-img {
+        width: 4rem;
+      }
     }
 
-    a {
+    #check {
+      display: none;
+    }
+    .check-btn {
+      display: none;
+    }
+  }
+}
+
+@media #{$tablet} {
+  .top-bar {
+    height: 100%;
+    background-color: $secondary;
+    @include flex-align;
+    justify-content: space-between;
+    overflow: hidden;
+
+    &__actions {
+      @include flex-full;
+      gap: 0.5rem;
+      height: 20vh;
+      width: 18vw;
+      padding: 0;
+      position: fixed;
+      top: 8.64rem;
+      left: -100%;
+      transition: all 0.5s;
+      background-color: $secondary;
+
+      &.open {
+        left: 0;
+      }
+
+      .active {
+        color: $main;
+      }
+
+      a {
+        color: $white;
+        font-size: 1.8rem;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      a:hover {
+        color: $main;
+      }
+      .crypto-img {
+        display: none;
+      }
+    }
+
+    .check-btn {
+      display: block;
+      font-size: 2.5rem;
       color: $white;
-      font-size: 1.8rem;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    a:hover {
-      color: $main;
-    }
-    .crypto-img {
-      width: 4rem;
+      cursor: pointer;
+      margin-left: 1.5rem;
     }
   }
 }

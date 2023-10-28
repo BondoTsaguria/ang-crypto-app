@@ -8,5 +8,10 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TopBarComponent {
+  isMenuOpen = false;
   constructor(public authService: AuthService) {}
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
