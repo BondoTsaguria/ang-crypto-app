@@ -1,36 +1,112 @@
 @import "../../../../shared/styles/shared.scss";
 
-.market-data__container {
-  .filter {
-    width: 100%;
-    font-size: 1.6rem;
-  }
-  .table {
-    width: 100%;
-    td,
-    th {
-      width: 25%;
-      .symbol-image {
-        @include flex-align;
-        gap: 0.5rem;
+@media #{$desktop} {
+  .market-data__container {
+    .filter {
+      width: 100%;
+      font-size: 1.6rem;
+    }
+    .table {
+      width: 100%;
+      td,
+      th {
+        width: 25%;
+        .symbol-image {
+          @include flex-align;
+          gap: 0.5rem;
+        }
+      }
+
+      .view-button {
+        background-color: $btn;
+        border-radius: 1rem;
+        padding: 0.6rem 1.2rem;
+        color: $white;
+        transition: background-color 0.3s;
+        border: none;
+
+        &:hover {
+          background-color: $btn-hover;
+        }
       }
     }
 
-    .view-button {
-      background-color: $btn;
-      border-radius: 1rem;
-      padding: 0.6rem 1.2rem;
-      color: $white;
-      transition: background-color 0.3s;
-      border: none;
-
-      &:hover {
-        background-color: $btn-hover;
-      }
+    .mat-paginator {
+      font-size: 1.4rem;
     }
   }
+}
 
-  .mat-paginator {
-    font-size: 1.4rem;
+@media #{$tablet} {
+  .market-data__container {
+    .filter {
+      width: 100%;
+      font-size: 1.5rem;
+    }
+    .table {
+      width: 100%;
+      td,
+      th {
+        width: 25%;
+        .symbol-image {
+          @include flex-align;
+          gap: 0.45rem;
+        }
+      }
+
+      .view-button {
+        background-color: $btn;
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+        color: $white;
+        transition: background-color 0.3s;
+        border: none;
+
+        &:hover {
+          background-color: $btn-hover;
+        }
+      }
+    }
+
+    .mat-paginator {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media #{$mobile} {
+  .market-data__container {
+    .filter {
+      width: 100%;
+      font-size: 1.3rem;
+    }
+    .table {
+      width: 100%;
+      td,
+      th {
+        width: 25%;
+        .symbol-image {
+          @include flex-align;
+          gap: 0.3rem;
+        }
+      }
+
+      .view-button {
+        background-color: $btn;
+        border-radius: 1rem;
+        padding: 0.4rem 0.8rem;
+        color: $white;
+        transition: background-color 0.3s;
+        border: none;
+
+        &:hover {
+          background-color: $btn-hover;
+        }
+      }
+    }
+
+    .mat-paginator {
+      font-size: 1.1rem;
+    }
   }
 }
