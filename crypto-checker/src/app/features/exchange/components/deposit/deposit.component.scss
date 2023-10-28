@@ -1,68 +1,208 @@
 @import "../../../../shared/styles/shared.scss";
 
-.deposit-container {
-  height: 100%;
-  @include flex-full;
-  gap: 2rem;
-  color: $white;
-
-  .background-image {
-    content: "";
-    background-image: url("../../../../../assets/imgs/account-background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    filter: blur(0.2rem);
-    z-index: -1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+@media #{$desktop} {
+  .deposit-container {
     height: 100%;
-  }
-
-  .balance {
-    @include flex-align;
-    gap: 0.5rem;
-    h2,
-    .balance-amount {
-      font-size: 3.6rem;
-    }
-  }
-
-  .deposit-page,
-  .withdraw-page {
     @include flex-full;
-    gap: 1rem;
-    label {
-      font-size: 2.6rem;
-    }
-    .deposit-button,
-    .withdraw-button {
-      color: $white;
-      padding: 0.5rem 1.5rem;
-      border-radius: 0.5rem;
-      border: none;
-      cursor: pointer;
+    gap: 2rem;
+    color: $white;
+
+    .background-image {
+      content: "";
+      background-image: url("../../../../../assets/imgs/account-background.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: blur(0.2rem);
+      z-index: -1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
-    .deposit-button {
-      background-color: $btn;
-      &:hover {
-        background-color: $btn-hover;
+    .balance {
+      @include flex-align;
+      gap: 0.5rem;
+      h2,
+      .balance-amount {
+        font-size: 3.6rem;
       }
     }
-    .withdraw-button {
-      background-color: $withdraw;
-      &:hover {
-        background-color: $withdraw-hover;
+
+    .deposit-page,
+    .withdraw-page {
+      @include flex-full;
+      gap: 1rem;
+      label {
+        font-size: 2.6rem;
+      }
+      .deposit-button,
+      .withdraw-button {
+        color: $white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.5rem;
+        border: none;
+        cursor: pointer;
+      }
+
+      .deposit-button {
+        background-color: $btn;
+        &:hover {
+          background-color: $btn-hover;
+        }
+      }
+      .withdraw-button {
+        background-color: $withdraw;
+        &:hover {
+          background-color: $withdraw-hover;
+        }
+      }
+      #depositAmount,
+      #withdrawAmount {
+        width: 75%;
+        height: 2rem;
+        border-radius: 0.5rem;
+        border: none;
       }
     }
-    #depositAmount,
-    #withdrawAmount {
-      width: 75%;
-      height: 2rem;
-      border-radius: 0.5rem;
-      border: none;
+  }
+}
+
+@media #{$tablet} {
+  .deposit-container {
+    height: 100%;
+    @include flex-full;
+    gap: 1.8rem;
+    color: $white;
+
+    .background-image {
+      content: "";
+      background-image: url("../../../../../assets/imgs/account-background.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: blur(0.2rem);
+      z-index: -1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .balance {
+      @include flex-align;
+      gap: 0.45rem;
+      h2,
+      .balance-amount {
+        font-size: 3rem;
+      }
+    }
+
+    .deposit-page,
+    .withdraw-page {
+      @include flex-full;
+      gap: 0.9rem;
+      label {
+        font-size: 2.2rem;
+      }
+      .deposit-button,
+      .withdraw-button {
+        color: $white;
+        padding: 0.4rem 1.3rem;
+        border-radius: 0.5rem;
+        border: none;
+        cursor: pointer;
+      }
+
+      .deposit-button {
+        background-color: $btn;
+        &:hover {
+          background-color: $btn-hover;
+        }
+      }
+      .withdraw-button {
+        background-color: $withdraw;
+        &:hover {
+          background-color: $withdraw-hover;
+        }
+      }
+      #depositAmount,
+      #withdrawAmount {
+        width: 75%;
+        height: 1.8rem;
+        border-radius: 0.5rem;
+        border: none;
+      }
+    }
+  }
+}
+
+@media #{$mobile} {
+  .deposit-container {
+    height: 100%;
+    @include flex-full;
+    gap: 1.5rem;
+    color: $white;
+
+    .background-image {
+      content: "";
+      background-image: url("../../../../../assets/imgs/account-background.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: blur(0.2rem);
+      z-index: -1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .balance {
+      @include flex-align;
+      gap: 0.3rem;
+      h2,
+      .balance-amount {
+        font-size: 2.4rem;
+      }
+    }
+
+    .deposit-page,
+    .withdraw-page {
+      @include flex-full;
+      gap: 0.7rem;
+      label {
+        font-size: 1.7rem;
+      }
+      .deposit-button,
+      .withdraw-button {
+        color: $white;
+        padding: 0.3rem 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        cursor: pointer;
+      }
+
+      .deposit-button {
+        background-color: $btn;
+        &:hover {
+          background-color: $btn-hover;
+        }
+      }
+      .withdraw-button {
+        background-color: $withdraw;
+        &:hover {
+          background-color: $withdraw-hover;
+        }
+      }
+      #depositAmount,
+      #withdrawAmount {
+        width: 75%;
+        height: 1.2rem;
+        border-radius: 0.5rem;
+        border: none;
+      }
     }
   }
 }
