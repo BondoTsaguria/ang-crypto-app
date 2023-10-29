@@ -67,6 +67,15 @@
     </form>
   </div>
 
+  <div class="error-container">
+    <div *ngIf="buyErrorMessage" class="error-message">
+      {{ buyErrorMessage }}
+    </div>
+    <div *ngIf="sellErrorMessage" class="error-message">
+      {{ sellErrorMessage }}
+    </div>
+  </div>
+
   <div class="record" *ngIf="userData">
     <h2>Buy/Sell record</h2>
     <table class="crypto-table">

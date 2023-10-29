@@ -21,6 +21,13 @@
       height: 100%;
     }
 
+    .error-container {
+      .error-message {
+        color: $error;
+        font-size: 1.4rem;
+      }
+    }
+
     .available {
       @include flex-align;
       gap: 2rem;
@@ -146,6 +153,13 @@
       height: 100%;
     }
 
+    .error-container {
+      .error-message {
+        color: $error;
+        font-size: 1.2rem;
+      }
+    }
+
     .available {
       @include flex-align;
       gap: 1.8rem;
@@ -269,6 +283,13 @@
       left: 0;
       width: 100%;
       height: 100%;
+    }
+
+    .error-container {
+      .error-message {
+        color: $error;
+        font-size: 1rem;
+      }
     }
 
     .available {

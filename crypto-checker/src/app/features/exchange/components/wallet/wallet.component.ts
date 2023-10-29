@@ -28,6 +28,9 @@ export class WalletComponent implements OnInit {
   buttonClicked!: boolean;
   myCurrencies!: ownedCryptoes[];
 
+  buyErrorMessage: string = '';
+  sellErrorMessage: string = '';
+
   constructor(
     private authService: AuthService,
     private userService: UserService,
@@ -150,15 +153,31 @@ export class WalletComponent implements OnInit {
     return true;
   }
 
+  clearErrorMessages() {
+    this.buyErrorMessage = '';
+    this.sellErrorMessage = '';
+  }
+
   // Buy / Sell methods
   buyCryptocurrency() {
-    if (
-      this.usdAmount! <= 0 ||
-      this.usdAmount! > this.accountBalance ||
-      !this.selectedCrypto ||
-      !this.usdAmount
-    )
+    this.clearErrorMessages();
+    if (this.usdAmount! <= 0) {
+      this.buyErrorMessage = 'Invalid amount';
       return;
+    }
+    if (this.usdAmount! > this.accountBalance) {
+      this.buyErrorMessage = 'Invalid balance';
+      return;
+    }
+    if (!this.selectedCrypto) {
+      this.buyErrorMessage = 'Coin not chosen';
+      return;
+    }
+    if (!this.usdAmount) {
+      this.buyErrorMessage = 'Amount not chosen';
+      return;
+    }
+
     this.buttonClicked = true;
     // Calculate the new balance
     const newBalance = this.accountBalance - this.usdAmount!;
@@ -169,13 +188,23 @@ export class WalletComponent implements OnInit {
   }
 
   sellCryptocurrency() {
-    if (
-      this.usdAmount! <= 0 ||
-      !this.selectedCrypto ||
-      this.eligibleToSell() ||
-      !this.usdAmount
-    )
+    this.clearErrorMessages();
+    if (this.usdAmount! <= 0) {
+      this.sellErrorMessage = 'Invalid amount';
       return;
+    }
+    if (!this.selectedCrypto) {
+      this.sellErrorMessage = 'Coin not chosen';
+      return;
+    }
+    if (this.eligibleToSell()) {
+      this.sellErrorMessage = 'Invalid crypto amount';
+      return;
+    }
+    if (!this.usdAmount) {
+      this.sellErrorMessage = 'Amount not chosen';
+      return;
+    }
     this.buttonClicked = false;
     // Calculate the new balance
     const newBalance = this.accountBalance + this.usdAmount!;

@@ -28,18 +28,23 @@
       "phoneNumber": "+995555555555",
       "agreement": true,
       "id": 2,
-      "balance": 900,
+      "balance": 700,
       "cryptocurrencies": [
         {
           "symbol": "btc",
           "usdAmount": 100,
           "date": "2023-10-28T21:42:23.659Z"
+        },
+        {
+          "symbol": "btc",
+          "usdAmount": 200,
+          "date": "2023-10-29T13:20:47.642Z"
         }
       ],
       "mycurrencies": [
         {
           "symbol": "btc",
-          "usdAmount": 100
+          "usdAmount": 300
         }
       ]
     }
