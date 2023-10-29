@@ -10,8 +10,7 @@ export class LoginGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.authService.isLoggedIn()) {
-      // If logged in, prevent access and redirect to another route (e.g., /market)
-      this.router.navigateByUrl('/market');
+      this.router.navigateByUrl('/account');
       return false;
     } else {
       return true;

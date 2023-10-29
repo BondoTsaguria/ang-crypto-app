@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
 } from '@angular/core';
+import { mainCryptoData } from 'src/app/shared/interfaces/crypto-data.interface';
 import { CryptoDataService } from 'src/app/shared/services/crypto-data.service';
 
 @Component({
@@ -13,7 +14,7 @@ import { CryptoDataService } from 'src/app/shared/services/crypto-data.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
-  trendingData!: any[];
+  trendingData!: mainCryptoData[];
 
   constructor(
     private cryptoData: CryptoDataService,

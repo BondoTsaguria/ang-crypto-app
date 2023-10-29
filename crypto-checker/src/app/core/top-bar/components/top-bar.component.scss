@@ -11,8 +11,8 @@
     &__actions {
       height: 100%;
       padding: 2rem;
-      gap: 1.5rem;
       @include flex-align;
+      gap: 1.5rem;
 
       .active {
         color: $main;
