@@ -47,6 +47,18 @@
           "usdAmount": 300
         }
       ]
+    },
+    {
+      "email": "bondo123@gmail.com",
+      "password": "22222222",
+      "confirmPassword": "22222222",
+      "nickname": "bond-123",
+      "phoneNumber": "+995555555555",
+      "agreement": true,
+      "id": 1,
+      "balance": 0,
+      "cryptocurrencies": [],
+      "mycurrencies": []
     }
   ]
 }

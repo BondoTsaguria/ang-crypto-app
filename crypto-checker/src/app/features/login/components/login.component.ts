@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { UserData } from 'src/app/shared/interfaces/user-data.interface';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,13 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
+  }
+
+  signIn(user: UserData) {
+    this.authService.setLoggedIn(true);
+    this.formGroup.reset();
+    this.authService.setCurrentUserId(user.id || null);
+    this.router.navigateByUrl('/market');
   }
 
   onSubmit() {
@@ -54,20 +62,14 @@ export class LoginComponent {
                 );
 
                 if (loggedInUser) {
-                  this.authService.setLoggedIn(true);
-                  this.formGroup.reset();
-                  this.authService.setCurrentUserId(user.id || null);
-                  this.router.navigateByUrl('/market');
+                  this.signIn(user);
                   this.cdr.detectChanges();
                 } else {
                   // User not already logged in, add to loggedInUsers
-                  this.authService.setLoggedIn(true);
-                  this.formGroup.reset();
+                  this.signIn(user);
                   this.userService.addLoggedInUser(user).subscribe((res) => {
                     console.log(res);
                   });
-                  this.authService.setCurrentUserId(user.id || null);
-                  this.router.navigateByUrl('/market');
                   this.cdr.detectChanges();
                 }
               },
