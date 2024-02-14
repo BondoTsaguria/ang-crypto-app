@@ -67,9 +67,7 @@ export class LoginComponent {
                 } else {
                   // User not already logged in, add to loggedInUsers
                   this.signIn(user);
-                  this.userService.addLoggedInUser(user).subscribe((res) => {
-                    console.log(res);
-                  });
+                  this.userService.addLoggedInUser(user).subscribe();
                   this.cdr.detectChanges();
                 }
               },

@@ -1,64 +1,43 @@
 {
   "users": [
     {
-      "email": "bondo123@gmail.com",
-      "password": "22222222",
-      "confirmPassword": "22222222",
-      "nickname": "bond-123",
-      "phoneNumber": "+995555555555",
-      "agreement": true,
-      "id": 1
-    },
-    {
+      "id": "19a6",
       "email": "caguria1@gmail.com",
-      "password": "11111111",
-      "confirmPassword": "11111111",
-      "nickname": "bondo-123",
-      "phoneNumber": "+995555555555",
-      "agreement": true,
-      "id": 2
+      "password": "33333333",
+      "confirmPassword": "33333333",
+      "nickname": "iuzki-123",
+      "phoneNumber": "+995555555500",
+      "agreement": true
     }
   ],
   "loggedInUsers": [
     {
+      "id": "19a6",
       "email": "caguria1@gmail.com",
-      "password": "11111111",
-      "confirmPassword": "11111111",
-      "nickname": "bondo-123",
-      "phoneNumber": "+995555555555",
+      "password": "33333333",
+      "confirmPassword": "33333333",
+      "nickname": "iuzki-123",
+      "phoneNumber": "+995555555500",
       "agreement": true,
-      "id": 2,
-      "balance": 500,
+      "balance": 700,
       "cryptocurrencies": [
         {
-          "symbol": "btc",
+          "symbol": "eth",
           "usdAmount": 100,
-          "date": "2023-10-28T21:42:23.659Z"
+          "date": "2024-02-01T16:02:31.205Z"
         },
         {
           "symbol": "btc",
           "usdAmount": 200,
-          "date": "2023-10-29T13:20:47.642Z"
+          "date": "2024-02-01T16:03:07.487Z"
         }
       ],
       "mycurrencies": [
         {
-          "symbol": "btc",
-          "usdAmount": 300
+          "symbol": "eth",
+          "usdAmount": 100
         }
       ]
-    },
-    {
-      "email": "bondo123@gmail.com",
-      "password": "22222222",
-      "confirmPassword": "22222222",
-      "nickname": "bond-123",
-      "phoneNumber": "+995555555555",
-      "agreement": true,
-      "id": 1,
-      "balance": 0,
-      "cryptocurrencies": [],
-      "mycurrencies": []
     }
   ]
 }

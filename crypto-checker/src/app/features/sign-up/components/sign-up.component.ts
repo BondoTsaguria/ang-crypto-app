@@ -76,14 +76,7 @@ export class SignUpComponent {
     if (this.formGroup.valid) {
       const formData = this.formGroup.value;
 
-      this.userService.addUser(formData).subscribe(
-        (response) => {
-          console.log('User registered:', response);
-        },
-        (error) => {
-          console.error('Registration failed:', error);
-        }
-      );
+      this.userService.addUser(formData).subscribe();
 
       // Clear the form after submission
       this.formGroup.reset();
