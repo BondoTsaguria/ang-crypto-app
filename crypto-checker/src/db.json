@@ -1,41 +1,50 @@
 {
   "users": [
     {
-      "id": "19a6",
-      "email": "caguria1@gmail.com",
-      "password": "33333333",
-      "confirmPassword": "33333333",
-      "nickname": "iuzki-123",
+      "id": "f502",
+      "email": "admin@gmail.com",
+      "password": "11111111",
+      "confirmPassword": "11111111",
+      "nickname": "coinmaster-123",
       "phoneNumber": "+995555555500",
       "agreement": true
     }
   ],
   "loggedInUsers": [
     {
-      "id": "19a6",
-      "email": "caguria1@gmail.com",
-      "password": "33333333",
-      "confirmPassword": "33333333",
-      "nickname": "iuzki-123",
+      "id": "f502",
+      "email": "admin@gmail.com",
+      "password": "11111111",
+      "confirmPassword": "11111111",
+      "nickname": "coinmaster-123",
       "phoneNumber": "+995555555500",
       "agreement": true,
-      "balance": 700,
+      "balance": 500,
       "cryptocurrencies": [
         {
-          "symbol": "eth",
+          "symbol": "btc",
           "usdAmount": 100,
-          "date": "2024-02-01T16:02:31.205Z"
+          "date": "2024-03-12T17:16:55.731Z"
         },
         {
-          "symbol": "btc",
+          "symbol": "eth",
           "usdAmount": 200,
-          "date": "2024-02-01T16:03:07.487Z"
+          "date": "2024-03-12T17:17:28.257Z"
+        },
+        {
+          "symbol": "ada",
+          "usdAmount": 200,
+          "date": "2024-03-12T17:33:06.701Z"
         }
       ],
       "mycurrencies": [
         {
-          "symbol": "eth",
+          "symbol": "btc",
           "usdAmount": 100
+        },
+        {
+          "symbol": "eth",
+          "usdAmount": 200
         }
       ]
     }

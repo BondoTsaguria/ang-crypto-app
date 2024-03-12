@@ -38,7 +38,9 @@ export class AccountComponent implements OnInit {
     if (currentUserId !== null) {
       // Fetch the logged-in user data
       this.userService.getLoggedInUsers().subscribe((users) => {
-        this.loggedInUsers = users.filter((user) => user.id === currentUserId);
+        this.loggedInUsers = users.filter(
+          (user) => user.id?.toString() === currentUserId
+        );
         this.cdr.detectChanges();
       });
     }

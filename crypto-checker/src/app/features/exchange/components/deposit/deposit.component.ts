@@ -31,7 +31,7 @@ export class DepositComponent implements OnInit {
   ngOnInit(): void {
     const currentUserId = this.authService.getCurrentUserId();
     this.userService.getLoggedInUsers().subscribe((users) => {
-      const user = users.find((user) => user.id === currentUserId);
+      const user = users.find((user) => user.id?.toString() === currentUserId);
       this.accountBalance = user?.balance!;
       this.cdr.detectChanges();
     });
@@ -59,7 +59,7 @@ export class DepositComponent implements OnInit {
     if (currentUserId) {
       // Call the deposit method from the ExchangeService to update the balance
       this.exchangeService
-        .deposit(currentUserId, depositAmount)
+        .deposit(currentUserId.toString(), depositAmount)
         .subscribe((res) => {
           this.accountBalance = res.balance!;
           this.depositAmount = null;
@@ -86,7 +86,7 @@ export class DepositComponent implements OnInit {
     if (currentUserId) {
       const newBalance = this.accountBalance - withdrawAmount;
       this.exchangeService
-        .updateBalanceAfterWithdraw(currentUserId, newBalance)
+        .updateBalanceAfterWithdraw(currentUserId.toString(), newBalance)
         .subscribe((res) => {
           this.accountBalance = res.balance!;
           this.withdrawAmount = null;

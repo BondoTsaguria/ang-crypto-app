@@ -13,7 +13,7 @@ export class ExchangeService {
   constructor(private http: HttpClient) {}
 
   //Update balance after deposit
-  deposit(userId: number, depositAmount: number): Observable<UserData> {
+  deposit(userId: string, depositAmount: number): Observable<UserData> {
     const url = `${this.baseUrl}/${userId}`;
 
     return this.http.get<UserData>(url).pipe(
@@ -27,7 +27,7 @@ export class ExchangeService {
   }
 
   //Update balance
-  updateUserBalance(userId: number, newBalance: number): Observable<UserData> {
+  updateUserBalance(userId: string, newBalance: number): Observable<UserData> {
     const userUrl = `${this.baseUrl}/${userId}`;
     const balanceUpdate = { balance: newBalance };
 
@@ -36,7 +36,7 @@ export class ExchangeService {
 
   //Update bought/sold coins record
   updateCryptocurrenciesRecord(
-    userId: number,
+    userId: string,
     updatedList: ownedCryptoes[]
   ): Observable<UserData> {
     const userUrl = `${this.baseUrl}/${userId}`;
@@ -48,7 +48,7 @@ export class ExchangeService {
   //Update coin list
   updateMycurrenciesList(
     inputData: ownedCryptoes[],
-    userId: number
+    userId: string
   ): Observable<UserData> {
     const userUrl = `${this.baseUrl}/${userId}`;
     const updatedCurrencies = { mycurrencies: inputData };
@@ -56,7 +56,7 @@ export class ExchangeService {
   }
 
   updateBalanceAfterWithdraw(
-    userId: number,
+    userId: string,
     newBalance: number
   ): Observable<UserData> {
     const url = `${this.baseUrl}/${userId}`;

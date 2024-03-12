@@ -34,7 +34,7 @@ export class LoginComponent {
   signIn(user: UserData) {
     this.authService.setLoggedIn(true);
     this.formGroup.reset();
-    this.authService.setCurrentUserId(user.id || null);
+    this.authService.setCurrentUserId(user.id?.toString() || null);
     this.router.navigateByUrl('/market');
   }
 
