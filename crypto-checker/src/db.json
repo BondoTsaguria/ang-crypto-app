@@ -19,7 +19,7 @@
       "nickname": "coinmaster-123",
       "phoneNumber": "+995555555500",
       "agreement": true,
-      "balance": 500,
+      "balance": 190,
       "cryptocurrencies": [
         {
           "symbol": "btc",
@@ -35,6 +35,26 @@
           "symbol": "ada",
           "usdAmount": 200,
           "date": "2024-03-12T17:33:06.701Z"
+        },
+        {
+          "symbol": "dot",
+          "usdAmount": 100,
+          "date": "2024-03-12T17:58:33.001Z"
+        },
+        {
+          "symbol": "ton",
+          "usdAmount": 100,
+          "date": "2024-03-12T18:12:55.869Z"
+        },
+        {
+          "symbol": "link",
+          "usdAmount": 100,
+          "date": "2024-03-12T18:13:13.330Z"
+        },
+        {
+          "symbol": "trx",
+          "usdAmount": 10,
+          "date": "2024-03-12T18:13:34.734Z"
         }
       ],
       "mycurrencies": [
@@ -45,6 +65,26 @@
         {
           "symbol": "eth",
           "usdAmount": 200
+        },
+        {
+          "symbol": "ada",
+          "usdAmount": 200
+        },
+        {
+          "symbol": "dot",
+          "usdAmount": 100
+        },
+        {
+          "symbol": "ton",
+          "usdAmount": 100
+        },
+        {
+          "symbol": "link",
+          "usdAmount": 100
+        },
+        {
+          "symbol": "trx",
+          "usdAmount": 10
         }
       ]
     }

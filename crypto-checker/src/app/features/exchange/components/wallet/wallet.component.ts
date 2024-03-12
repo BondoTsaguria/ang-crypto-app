@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
 } from '@angular/core';
+import { forkJoin } from 'rxjs';
 import { mainCryptoData } from 'src/app/shared/interfaces/crypto-data.interface';
 import { SymbolMap } from 'src/app/shared/interfaces/currency-list.type';
 import { ownedCryptoes } from 'src/app/shared/interfaces/owned-cryptoes.interface';
@@ -183,10 +184,14 @@ export class WalletComponent implements OnInit {
     this.buttonClicked = true;
     // Calculate the new balance
     const newBalance = this.accountBalance - this.usdAmount!;
-    this.updateCryptosRecord(this.usdAmount!, this.selectedCrypto);
-    this.updateBalanceChange(newBalance);
-    this.updateMycurrencies();
-    this.cdr.detectChanges();
+
+    forkJoin([
+      this.updateCryptosRecord(this.usdAmount!, this.selectedCrypto),
+      this.updateBalanceChange(newBalance),
+      this.updateMycurrencies(),
+    ]).subscribe(() => {
+      this.cdr.detectChanges();
+    });
   }
 
   sellCryptocurrency() {
@@ -210,9 +215,13 @@ export class WalletComponent implements OnInit {
     this.buttonClicked = false;
     // Calculate the new balance
     const newBalance = this.accountBalance + this.usdAmount!;
-    this.updateCryptosRecord(this.usdAmount!, this.selectedCrypto);
-    this.updateBalanceChange(newBalance);
-    this.updateMycurrencies();
-    this.cdr.detectChanges();
+
+    forkJoin([
+      this.updateCryptosRecord(this.usdAmount!, this.selectedCrypto),
+      this.updateBalanceChange(newBalance),
+      this.updateMycurrencies(),
+    ]).subscribe(() => {
+      this.cdr.detectChanges();
+    });
   }
 }
